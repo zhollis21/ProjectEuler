@@ -7,6 +7,8 @@ namespace ProjectEuler
         static void Main(string[] args)
         {
             Problem11();
+
+            Console.Read();
         }
 
         /// <summary>
