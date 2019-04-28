@@ -58,8 +58,6 @@ namespace ProjectEuler
 
             long number = 600851475143;
 
-            DateTime startTime = DateTime.Now;
-
             // This loops from smallest to largest looking for numbers that are divisible by our target number.
             // If we find a number that is divisible, we check the other half of the product which is a fast way
             // to get the largest evenly divisible products.
@@ -77,8 +75,6 @@ namespace ProjectEuler
                     }
                 }
             }
-
-            Console.WriteLine(DateTime.Now - startTime);
         }
 
         public static bool IsPrime(long number)
@@ -98,6 +94,37 @@ namespace ProjectEuler
         public static void Problem4()
         {
             Console.WriteLine("\n\n\n4. Find the largest palindrome made from the product of two 3-digit numbers.");
+
+            int maxProduct = 0;
+
+            for (int i = 999; i > 0; i--)
+            {
+                for (int j = 999; j > 0; j--)
+                {
+                    int product = i * j;
+
+                    if (IsPalendome(product.ToString()) && product > maxProduct)
+                        maxProduct = product;
+                }
+            }
+
+            Console.WriteLine("\nAnswer: " + maxProduct);
+        }
+
+        public static bool IsPalendome(string word)
+        {
+            if (string.IsNullOrEmpty(word))
+                return false;
+
+            int midpoint = word.Length / 2;
+
+            for (int front = 0, back = word.Length - 1; front <= midpoint; front++, back--)
+            {
+                if (word[front] != word[back])
+                    return false;
+            }
+
+            return true;
         }
 
         /// <summary>
@@ -106,7 +133,7 @@ namespace ProjectEuler
         public static void Problem5()
         {
             Console.WriteLine("\n\n\n5. What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?");
-            
+
             for (int number = 1; number < int.MaxValue; number++)
             {
                 if (IsDivisibleBy1Through20(number))
