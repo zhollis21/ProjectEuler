@@ -55,6 +55,36 @@ namespace ProjectEuler
         public static void Problem3()
         {
             Console.WriteLine("\n\n\n3. What is the largest prime factor of the number 600851475143?");
+
+            long number = 600851475143;
+            
+            DateTime startTime = DateTime.Now;
+
+            for (long i = 2; i < number / 2; i++)
+            {
+                if (number % i == 0)
+                {
+                    long diviser = number / i;
+                    if (IsPrime(diviser))
+                    {
+                        Console.WriteLine("\nAnswer: " + diviser);
+                        return;
+                    }
+                }
+            }
+
+            Console.WriteLine(DateTime.Now - startTime);
+        }
+
+        public static bool IsPrime(long number)
+        {
+            long squareRoot = (long)Math.Sqrt(number);
+
+            for (long i = 2; i < squareRoot; i++)
+                if (number % i == 0)
+                    return false;
+
+            return true;
         }
 
         /// <summary>
@@ -231,117 +261,117 @@ namespace ProjectEuler
             Console.WriteLine("\n\tAnswer: " + maxProduct);
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        public static void Problem12()
-        {
-            Console.WriteLine("\n\n\n");
-        }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public static void Problem12()
+        //{
+        //    Console.WriteLine("\n\n\n");
+        //}
 
-        /// <summary>
-        /// 
-        /// </summary>
-        public static void Problem13()
-        {
-            Console.WriteLine("\n\n\n");
-        }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public static void Problem13()
+        //{
+        //    Console.WriteLine("\n\n\n");
+        //}
 
-        /// <summary>
-        /// 
-        /// </summary>
-        public static void Problem14()
-        {
-            Console.WriteLine("\n\n\n");
-        }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public static void Problem14()
+        //{
+        //    Console.WriteLine("\n\n\n");
+        //}
 
-        /// <summary>
-        /// 
-        /// </summary>
-        public static void Problem15()
-        {
-            Console.WriteLine("\n\n\n");
-        }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public static void Problem15()
+        //{
+        //    Console.WriteLine("\n\n\n");
+        //}
 
-        /// <summary>
-        /// 
-        /// </summary>
-        public static void Problem16()
-        {
-            Console.WriteLine("\n\n\n");
-        }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public static void Problem16()
+        //{
+        //    Console.WriteLine("\n\n\n");
+        //}
 
-        /// <summary>
-        /// 
-        /// </summary>
-        public static void Problem17()
-        {
-            Console.WriteLine("\n\n\n");
-        }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public static void Problem17()
+        //{
+        //    Console.WriteLine("\n\n\n");
+        //}
 
-        /// <summary>
-        /// 
-        /// </summary>
-        public static void Problem18()
-        {
-            Console.WriteLine("\n\n\n");
-        }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public static void Problem18()
+        //{
+        //    Console.WriteLine("\n\n\n");
+        //}
 
-        /// <summary>
-        /// 
-        /// </summary>
-        public static void Problem19()
-        {
-            Console.WriteLine("\n\n\n");
-        }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public static void Problem19()
+        //{
+        //    Console.WriteLine("\n\n\n");
+        //}
 
-        /// <summary>
-        /// 
-        /// </summary>
-        public static void Problem20()
-        {
-            Console.WriteLine("\n\n\n");
-        }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public static void Problem20()
+        //{
+        //    Console.WriteLine("\n\n\n");
+        //}
 
-        /// <summary>
-        /// 
-        /// </summary>
-        public static void Problem21()
-        {
-            Console.WriteLine("\n\n\n");
-        }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public static void Problem21()
+        //{
+        //    Console.WriteLine("\n\n\n");
+        //}
 
-        /// <summary>
-        /// 
-        /// </summary>
-        public static void Problem22()
-        {
-            Console.WriteLine("\n\n\n");
-        }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public static void Problem22()
+        //{
+        //    Console.WriteLine("\n\n\n");
+        //}
 
-        /// <summary>
-        /// 
-        /// </summary>
-        public static void Problem23()
-        {
-            Console.WriteLine("\n\n\n");
-        }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public static void Problem23()
+        //{
+        //    Console.WriteLine("\n\n\n");
+        //}
 
-        /// <summary>
-        /// 
-        /// </summary>
-        public static void Problem24()
-        {
-            Console.WriteLine("\n\n\n");
-        }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public static void Problem24()
+        //{
+        //    Console.WriteLine("\n\n\n");
+        //}
 
-        /// <summary>
-        /// 
-        /// </summary>
-        public static void Problem25()
-        {
-            Console.WriteLine("\n\n\n");
-        }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public static void Problem25()
+        //{
+        //    Console.WriteLine("\n\n\n");
+        //}
 
         public static void PrintAllProblems()
         {
