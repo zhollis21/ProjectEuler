@@ -57,9 +57,14 @@ namespace ProjectEuler
             Console.WriteLine("\n\n\n3. What is the largest prime factor of the number 600851475143?");
 
             long number = 600851475143;
-            
+
             DateTime startTime = DateTime.Now;
 
+            // This loops from smallest to largest looking for numbers that are divisible by our target number.
+            // If we find a number that is divisible, we check the other half of the product which is a fast way
+            // to get the largest evenly divisible products.
+            // Ex: If 34 is our tagert number and we find that 2 is divisible we know that the largest product into 34 is 17,
+            // because 34 / 2 = 17 and if 17 is prime then we have found our answer.
             for (long i = 2; i < number / 2; i++)
             {
                 if (number % i == 0)
@@ -101,6 +106,24 @@ namespace ProjectEuler
         public static void Problem5()
         {
             Console.WriteLine("\n\n\n5. What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?");
+            
+            for (int number = 1; number < int.MaxValue; number++)
+            {
+                if (IsDivisibleBy1Through20(number))
+                {
+                    Console.WriteLine("\nAnswer: " + number);
+                    return;
+                }
+            }
+        }
+
+        public static bool IsDivisibleBy1Through20(int number)
+        {
+            for (int divisor = 1; divisor <= 20; divisor++)
+                if (number % divisor != 0)
+                    return false;
+
+            return true;
         }
 
         /// <summary>
