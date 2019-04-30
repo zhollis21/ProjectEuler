@@ -235,11 +235,11 @@ namespace ProjectEuler
             Console.WriteLine("\n\n\n10. Find the sum of all the primes below two million.");
 
             long sum = 0;
-            List<int> listOfPrimes = new List<int>();
+            List<int> listOfPrimes = new List<int>() { 2 };
 
             DateTime start = DateTime.Now;
 
-            for (int number = 2; number < 2000000; number++)
+            for (int number = 3; number < 2000000; number += 2)
             {
                 bool isPrime = true;
                 int primeCount = listOfPrimes.Count;
