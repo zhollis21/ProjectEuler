@@ -233,6 +233,43 @@ namespace ProjectEuler
         public static void Problem10()
         {
             Console.WriteLine("\n\n\n10. Find the sum of all the primes below two million.");
+
+            long sum = 0;
+            List<int> listOfPrimes = new List<int>() { 2, 3, 5, 7, 11, 13, 17, 19, 23, 29};
+
+            DateTime start = DateTime.Now;
+
+            // We loop through the odd numbers that aren't multiples of the first 10 prime numbers, adding them to our list
+            for (int i = 3; i < 2000000; i += 2)
+                if (i % 3 != 0 && i % 5 != 0 && i % 7 != 0 && i % 11 != 0 &&
+                    i % 13 != 0 && i % 17 != 0 && i % 19 != 0)
+                    listOfPrimes.Add(i);
+
+            Console.WriteLine("List Time: " + (DateTime.Now - start));
+
+            int listCount = listOfPrimes.Count;
+
+            // We start at index 10, because we already know there are no multiples of the first 10 prime numbers
+            for (int i = 10; i < listCount; i++)
+            {
+                int deletingIndex = i + 1;
+                while (deletingIndex < listCount)
+                {
+                    if (listOfPrimes[deletingIndex] % listOfPrimes[i] == 0)
+                    {
+                        listOfPrimes.RemoveAt(deletingIndex);
+                        listCount--;
+                    }
+                    else // We only advance our deleting pointer when we didn't delete
+                        deletingIndex++;
+                }
+            }
+
+            Console.WriteLine("Removal Time: " + (DateTime.Now - start));
+            listOfPrimes.ForEach(x => sum += x);
+
+            Console.WriteLine("Answer: " + sum);
+            Console.WriteLine("Final Time: " + (DateTime.Now - start));
         }
 
         /// <summary>
