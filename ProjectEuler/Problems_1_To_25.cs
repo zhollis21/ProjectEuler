@@ -111,7 +111,7 @@ namespace ProjectEuler
             Console.WriteLine("\nAnswer: " + maxProduct);
         }
 
-        public static bool IsPalendome(string word)
+        private static bool IsPalendome(string word)
         {
             if (string.IsNullOrEmpty(word))
                 return false;
@@ -134,7 +134,8 @@ namespace ProjectEuler
         {
             Console.WriteLine("\n\n\n5. What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?");
 
-            for (int number = 1; number < int.MaxValue; number++)
+            // Incremant by 20 because that is the biggest divisor
+            for (int number = 20; number < int.MaxValue; number += 20)
             {
                 if (IsDivisibleBy1Through20(number))
                 {
@@ -144,7 +145,7 @@ namespace ProjectEuler
             }
         }
 
-        public static bool IsDivisibleBy1Through20(int number)
+        private static bool IsDivisibleBy1Through20(int number)
         {
             for (int divisor = 1; divisor <= 20; divisor++)
                 if (number % divisor != 0)
@@ -232,12 +233,10 @@ namespace ProjectEuler
         /// </summary>
         public static void Problem10()
         {
-            Console.WriteLine("\n\n\n10. Find the sum of all the primes below two million.");
+            Console.WriteLine("\n\n\n10. Find the sum of all the primes below two million (this could take a minute or two).");
 
             long sum = 0;
             List<int> listOfPrimes = new List<int>() { 2 };
-
-            DateTime start = DateTime.Now;
 
             for (int number = 3; number < 2000000; number += 2)
             {
@@ -257,11 +256,9 @@ namespace ProjectEuler
                     listOfPrimes.Add(number);
             }
 
-            Console.WriteLine("List Built Time: " + (DateTime.Now - start));
             listOfPrimes.ForEach(x => sum += x);
 
-            Console.WriteLine("Answer: " + sum);
-            Console.WriteLine("Final Time: " + (DateTime.Now - start));
+            Console.WriteLine("\n\tAnswer: " + sum);
         }
 
         /// <summary>
@@ -340,13 +337,49 @@ namespace ProjectEuler
             Console.WriteLine("\n\tAnswer: " + maxProduct);
         }
 
-        ///// <summary>
-        ///// 
-        ///// </summary>
-        //public static void Problem12()
-        //{
-        //    Console.WriteLine("\n\n\n");
-        //}
+        /// <summary>
+        /// What is the value of the first triangle number to have over five hundred divisors?
+        /// </summary>
+        public static void Problem12()
+        {
+            Console.WriteLine("\n\n\nWhat is the value of the first triangle number to have over five hundred divisors?");
+            long triangleNumber = 1;
+
+            for (int i = 2; i < int.MaxValue; i++)
+            {
+                triangleNumber += i;
+                if (NumberOfFactors(triangleNumber) > 500)
+                    break;
+            }
+
+            Console.WriteLine("\n\tAnswer: " + triangleNumber);
+        }
+
+        private static int NumberOfFactors(long number)
+        {
+            // This is designed only for numbers greater than 1
+            // We start at 2 because we already know 1 and itself go into it
+            int numberOfFactors = 2;
+            int squareRootOfNumber = (int)Math.Sqrt(number);
+
+            for (int divisor = 2; divisor < squareRootOfNumber; divisor++)
+            {
+                if (number % divisor == 0)
+                {
+                    // This is a bit complex, but basically we are trying to record both ends of the factors
+                    // Doing so allows us to only have to go to the sqrt instead of half of the number
+                    // Example: 2 is a factor of 40, so if we divide 40 by 2 we get the other factor (20)
+                    // However we need to make sure we don't double count the square root
+                    // Example: 2 is a factor of 4, but if we divide 4 by 2 we get 2, which we should only count as one factor
+                    if (number == squareRootOfNumber)
+                        numberOfFactors++;
+                    else
+                        numberOfFactors += 2;
+                }
+            }
+
+            return numberOfFactors;
+        }
 
         ///// <summary>
         ///// 
@@ -354,6 +387,8 @@ namespace ProjectEuler
         //public static void Problem13()
         //{
         //    Console.WriteLine("\n\n\n");
+
+        //    Console.WriteLine("\n\tAnswer: ");
         //}
 
         ///// <summary>
@@ -362,6 +397,8 @@ namespace ProjectEuler
         //public static void Problem14()
         //{
         //    Console.WriteLine("\n\n\n");
+
+        //    Console.WriteLine("\n\tAnswer: ");
         //}
 
         ///// <summary>
@@ -370,6 +407,8 @@ namespace ProjectEuler
         //public static void Problem15()
         //{
         //    Console.WriteLine("\n\n\n");
+
+        //    Console.WriteLine("\n\tAnswer: ");
         //}
 
         ///// <summary>
@@ -378,6 +417,8 @@ namespace ProjectEuler
         //public static void Problem16()
         //{
         //    Console.WriteLine("\n\n\n");
+
+        //    Console.WriteLine("\n\tAnswer: ");
         //}
 
         ///// <summary>
@@ -386,6 +427,8 @@ namespace ProjectEuler
         //public static void Problem17()
         //{
         //    Console.WriteLine("\n\n\n");
+
+        //    Console.WriteLine("\n\tAnswer: ");
         //}
 
         ///// <summary>
@@ -394,6 +437,8 @@ namespace ProjectEuler
         //public static void Problem18()
         //{
         //    Console.WriteLine("\n\n\n");
+
+        //    Console.WriteLine("\n\tAnswer: ");
         //}
 
         ///// <summary>
@@ -402,6 +447,8 @@ namespace ProjectEuler
         //public static void Problem19()
         //{
         //    Console.WriteLine("\n\n\n");
+
+        //    Console.WriteLine("\n\tAnswer: ");
         //}
 
         ///// <summary>
@@ -410,6 +457,8 @@ namespace ProjectEuler
         //public static void Problem20()
         //{
         //    Console.WriteLine("\n\n\n");
+
+        //    Console.WriteLine("\n\tAnswer: ");
         //}
 
         ///// <summary>
@@ -418,6 +467,8 @@ namespace ProjectEuler
         //public static void Problem21()
         //{
         //    Console.WriteLine("\n\n\n");
+
+        //    Console.WriteLine("\n\tAnswer: ");
         //}
 
         ///// <summary>
@@ -426,6 +477,8 @@ namespace ProjectEuler
         //public static void Problem22()
         //{
         //    Console.WriteLine("\n\n\n");
+
+        //    Console.WriteLine("\n\tAnswer: ");
         //}
 
         ///// <summary>
@@ -434,6 +487,8 @@ namespace ProjectEuler
         //public static void Problem23()
         //{
         //    Console.WriteLine("\n\n\n");
+
+        //    Console.WriteLine("\n\tAnswer: ");
         //}
 
         ///// <summary>
@@ -442,6 +497,8 @@ namespace ProjectEuler
         //public static void Problem24()
         //{
         //    Console.WriteLine("\n\n\n");
+
+        //    Console.WriteLine("\n\tAnswer: ");
         //}
 
         ///// <summary>
@@ -450,6 +507,8 @@ namespace ProjectEuler
         //public static void Problem25()
         //{
         //    Console.WriteLine("\n\n\n");
+
+        //    Console.WriteLine("\n\tAnswer: ");
         //}
 
         public static void PrintAllProblems()
