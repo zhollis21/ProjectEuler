@@ -391,15 +391,51 @@ namespace ProjectEuler
         //    Console.WriteLine("\n\tAnswer: ");
         //}
 
-        ///// <summary>
-        ///// 
-        ///// </summary>
-        //public static void Problem14()
-        //{
-        //    Console.WriteLine("\n\n\n");
+        /// <summary>
+        /// Which starting number, under one million, produces the longest chain in the Collatz sequence.
+        /// </summary>
+        public static void Problem14()
+        {
+            Console.WriteLine("\n\n\nWhich starting number, under one million, produces the longest chain in the Collatz sequence.");
 
-        //    Console.WriteLine("\n\tAnswer: ");
-        //}
+            int maxSequenceCount = 0;
+            int numberWithMaxSequence = 0;
+
+            for (int number = 1; number < 1000000; number++)
+            {
+                int count = CollatzSequenceCount(number);
+
+                if (count >= maxSequenceCount)
+                {
+                    maxSequenceCount = count;
+                    numberWithMaxSequence = number;
+                }
+            }
+
+            Console.WriteLine($"\n\tAnswer: {numberWithMaxSequence} had the longest chain ({maxSequenceCount}).");
+        }
+
+        private static int CollatzSequenceCount(long number)
+        {
+            int sequenceCount = 1;
+
+            while (number > 1)
+            {
+                if (number % 2 == 0) // Even
+                {
+                    number /= 2;
+                    sequenceCount++;
+                }
+
+                else // Odd, we do both an odd and then an even formula to save computation cycles
+                { 
+                    number = (number * 3 + 1) / 2;
+                    sequenceCount += 2;
+                }
+            }
+
+            return sequenceCount;
+        }
 
         ///// <summary>
         ///// 
