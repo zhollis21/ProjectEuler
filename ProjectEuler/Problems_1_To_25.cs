@@ -8,9 +8,6 @@ namespace ProjectEuler
 {
     public static class Problems_1_To_25
     {
-        /// <summary>
-        /// Find the sum of all the multiples of 3 or 5 below 1000.
-        /// </summary>
         public static void Problem1()
         {
             Console.WriteLine("\n\n\n1. Find the sum of all the multiples of 3 or 5 below 1000.");
@@ -24,9 +21,6 @@ namespace ProjectEuler
             Console.WriteLine("\n\tAnswer: " + sum);
         }
 
-        /// <summary>
-        /// By considering the terms in the Fibonacci sequence whose values do not exceed four million, find the sum of the even-valued terms.
-        /// </summary>
         public static void Problem2()
         {
             Console.WriteLine("\n\n\n2. By considering the terms in the Fibonacci sequence whose values do not exceed four million,\nfind the sum of the even-valued terms.");
@@ -49,9 +43,6 @@ namespace ProjectEuler
             Console.WriteLine("\n\tAnswer: " + sum);
         }
 
-        /// <summary>
-        /// What is the largest prime factor of the number 600851475143?
-        /// </summary>
         public static void Problem3()
         {
             Console.WriteLine("\n\n\n3. What is the largest prime factor of the number 600851475143?");
@@ -88,9 +79,6 @@ namespace ProjectEuler
             return true;
         }
 
-        /// <summary>
-        /// Find the largest palindrome made from the product of two 3-digit numbers.
-        /// </summary>
         public static void Problem4()
         {
             Console.WriteLine("\n\n\n4. Find the largest palindrome made from the product of two 3-digit numbers.");
@@ -127,9 +115,6 @@ namespace ProjectEuler
             return true;
         }
 
-        /// <summary>
-        /// What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
-        /// </summary>
         public static void Problem5()
         {
             Console.WriteLine("\n\n\n5. What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?");
@@ -154,25 +139,16 @@ namespace ProjectEuler
             return true;
         }
 
-        /// <summary>
-        /// Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum.
-        /// </summary>
         public static void Problem6()
         {
             Console.WriteLine("\n\n\n6. Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum.");
         }
 
-        /// <summary>
-        /// What is the 10 001st prime number?
-        /// </summary>
         public static void Problem7()
         {
             Console.WriteLine("\n\n\n7. What is the 10,001st prime number?");
         }
 
-        /// <summary>
-        /// Find the thirteen adjacent digits in the 1000-digit number that have the greatest product. What is the value of this product?
-        /// </summary>
         public static void Problem8()
         {
             Console.WriteLine("\n\n\n8. Find the thirteen adjacent digits in the 1000-digit number that have the greatest product.\nWhat is the value of this product?\n");
@@ -219,18 +195,11 @@ namespace ProjectEuler
             Console.WriteLine("\n\tAnswer: " + maxProduct);
         }
 
-        /// <summary>
-        /// There exists exactly one Pythagorean triplet (a^2 + b^2 = c^2) for which a + b + c = 1000. 
-        /// Find the product abc.
-        /// </summary>
         public static void Problem9()
         {
             Console.WriteLine("\n\n\n9. There exists exactly one Pythagorean triplet (a^2 + b^2 = c^2) for which a + b + c = 1000.\nFind the product abc.");
         }
 
-        /// <summary>
-        /// Find the sum of all the primes below two million.
-        /// </summary>
         public static void Problem10()
         {
             Console.WriteLine("\n\n\n10. Find the sum of all the primes below two million (this could take a minute or two).");
@@ -261,9 +230,6 @@ namespace ProjectEuler
             Console.WriteLine("\n\tAnswer: " + sum);
         }
 
-        /// <summary>
-        /// What is the greatest product of four adjacent numbers in the same direction (up, down, left, right, or diagonally) in the 20×20 grid?
-        /// </summary>
         public static void Problem11()
         {
             Console.WriteLine("\n\n\n11. What is the greatest product of four adjacent numbers in the same direction (up, down, left, right, or diagonally)\nin the 20×20 grid?\n");
@@ -337,9 +303,6 @@ namespace ProjectEuler
             Console.WriteLine("\n\tAnswer: " + maxProduct);
         }
 
-        /// <summary>
-        /// What is the value of the first triangle number to have over five hundred divisors?
-        /// </summary>
         public static void Problem12()
         {
             Console.WriteLine("\n\n\nWhat is the value of the first triangle number to have over five hundred divisors?");
@@ -381,9 +344,6 @@ namespace ProjectEuler
             return numberOfFactors;
         }
 
-        /// <summary>
-        /// Work out the first ten digits of the sum of the following one-hundred 50-digit numbers.
-        /// </summary>
         public static void Problem13()
         {
             Console.WriteLine("\n\n\nWork out the first ten digits of the sum of the following one-hundred 50-digit numbers.");
@@ -520,9 +480,6 @@ namespace ProjectEuler
             "53503534226472524250874054075591789781264330331690"};
         }
 
-        /// <summary>
-        /// Which starting number, under one million, produces the longest chain in the Collatz sequence.
-        /// </summary>
         public static void Problem14()
         {
             Console.WriteLine("\n\n\nWhich starting number, under one million, produces the longest chain in the Collatz sequence.");
@@ -566,15 +523,32 @@ namespace ProjectEuler
             return sequenceCount;
         }
 
-        ///// <summary>
-        ///// 
-        ///// </summary>
-        //public static void Problem15()
-        //{
-        //    Console.WriteLine("\n\n\n");
+        public static void Problem15()
+        {
+            Console.WriteLine("\n\n\nStarting in the top left corner of a 2×2 grid, and only being able to move to the right and down,\n" +
+                "there are exactly 6 routes to the bottom right corner. How many such routes are there through a 20×20 grid?");
+            
+            for (int i = 1; i <= 20; i++)
+                Console.WriteLine($"\n\tAnswer for {i} is: " + CalculateNumberOfRoutes(0, 0, i, i));
+        }
 
-        //    Console.WriteLine("\n\tAnswer: ");
-        //}
+        private static ulong CalculateNumberOfRoutes(int xPos, int yPos, int xBound, int yBound)
+        {
+            if (xPos == xBound && yPos == yBound)
+                return 1;
+
+            ulong sumOfRoutes = 0;
+
+            // Go Right
+            if (xPos + 1 <= xBound)
+                sumOfRoutes += CalculateNumberOfRoutes(xPos + 1, yPos, xBound, yBound);
+
+            // Go Down
+            if (yPos + 1 <= yBound)
+                sumOfRoutes += CalculateNumberOfRoutes(xPos, yPos + 1, xBound, yBound);
+
+            return sumOfRoutes;
+        }
 
         ///// <summary>
         ///// 
