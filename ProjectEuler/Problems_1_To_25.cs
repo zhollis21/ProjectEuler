@@ -350,6 +350,7 @@ namespace ProjectEuler
         {
             Console.WriteLine("\n\n\nWork out the first ten digits of the sum of the following one-hundred 50-digit numbers.");
 
+            // NOTE: I could have used BigInt, but I thought it would be fun to do some string addition to mix it up
             List<string> numbers = GetListOfNumbers();
             int additionCarryOver = 0;
             string sumOfNumbers = string.Empty;
@@ -516,7 +517,7 @@ namespace ProjectEuler
                 }
 
                 else // Odd, we do both an odd and then an even formula to save computation cycles
-                { 
+                {
                     number = (number * 3 + 1) / 2;
                     sequenceCount += 2;
                 }
@@ -529,10 +530,10 @@ namespace ProjectEuler
         {
             Console.WriteLine("\n\n\nStarting in the top left corner of a 2×2 grid, and only being able to move to the right and down,\n" +
                 "there are exactly 6 routes to the bottom right corner. How many such routes are there through a 20×20 grid?");
-                        
-                Console.WriteLine($"\n\tAnswer: " + CalculateNumberOfRoutes(20, 20));
+
+            Console.WriteLine($"\n\tAnswer: " + CalculateNumberOfRoutes(20, 20));
         }
-        
+
         private static BigInteger CalculateNumberOfRoutes(int rightEdge, int downEdge)
         {
             // Formula is:
@@ -561,19 +562,139 @@ namespace ProjectEuler
             return numberOfTotalRoutes / (numberOfRightRoutes * numberOfDownRoutes);
         }
 
-        //public static void Problem16()
-        //{
-        //    Console.WriteLine("\n\n\n");
+        public static void Problem16()
+        {
+            Console.WriteLine("\n\n\nWhat is the sum of the digits of the number 2^1000?");
 
-        //    Console.WriteLine("\n\tAnswer: ");
-        //}
+            BigInteger product = 1;
 
-        //public static void Problem17()
-        //{
-        //    Console.WriteLine("\n\n\n");
+            for (int i = 0; i < 1000; i++)
+                product *= 2;
 
-        //    Console.WriteLine("\n\tAnswer: ");
-        //}
+            // You have to ToString the char in the sum function so it doesn't 
+            // pull the character value when converting to an integer
+            int sumOfDigits = product.ToString().Sum(x => Convert.ToInt32(x.ToString()));
+
+            Console.WriteLine("\n\tAnswer: " + sumOfDigits);
+        }
+
+        public static void Problem17()
+        {
+            Console.WriteLine("\n\n\nIf all the numbers from 1 to 1000 (one thousand) inclusive were written out in words, how many letters would be used?");
+
+            // NOTE: Do not count spaces or hyphens. For example, 342 (three hundred and forty-two) 
+            // contains 23 letters and 115 (one hundred and fifteen) contains 20 letters.
+            // The use of "and" when writing out numbers is in compliance with British usage.
+
+            int sumOfLetters = 0;
+
+            for (int i = 1; i <= 1000; i++)
+            {
+                Console.WriteLine($"{i} has {sumOfLetters += LettersInANumber(i)} letters.");
+            }
+
+            Console.WriteLine("\n\tAnswer: " + sumOfLetters);
+        }
+
+        private static int LettersInANumber(int number)
+        {
+            int numberOfDigits = number.ToString().Length;
+            int sumOfLetters = 0;
+
+            sumOfLetters += LettersInTheOnesPlace(number);
+            sumOfLetters += LettersInTheTensPlace(number);
+
+            // We need to add the 'and'
+            if (sumOfLetters > 0 && number >= 100)
+                sumOfLetters += 3;
+
+            sumOfLetters += LettersInTheHundredsPlace(number);
+            sumOfLetters += LettersInTheThousandsPlace(number);
+
+            return sumOfLetters;
+        }
+
+        private static int LettersInTheOnesPlace(int number)
+        {
+            number %= 10;
+
+            if (number == 0)
+                return 0;
+
+            else if (number == 1 || number == 2 || number == 6)
+                return 3;
+
+            else if (number == 4 || number == 5 || number == 9)
+                return 4;
+
+            return 5; // 3, 7, 8
+        }
+
+        private static int LettersInTheTensPlace(int number)
+        {
+            number %= 100;
+
+            if (number < 10)
+                return 0;
+
+            else if (number < 20)
+            {
+                if (number == 10)
+                    return 3;
+
+                else if (number == 11 || number == 12)
+                    return 3; // 6 - 3 = 3, This prevents double counting from the one's place
+
+                else if (number == 13 || number == 14 || number == 18 || number == 19)
+                    return 8 - LettersInTheOnesPlace(number); // This prevents double counting from the one's place
+
+                else if (number == 15 || number == 16)
+                    return 7 - LettersInTheOnesPlace(number); // This prevents double counting from the one's place
+
+                else // 17
+                    return 4; // 9 - 5 = 4, This prevents double counting from the one's place
+            }
+
+            // Zero out the 1's place
+            number -= number % 10;
+
+            if (number == 20 || number == 30 || number == 80 || number == 90)
+                return 6;
+
+            else if (number == 40 || number == 50 || number == 60)
+                return 5;
+
+            else // 70
+                return 7;
+        }
+
+        private static int LettersInTheHundredsPlace(int number)
+        {
+            number %= 1000;
+
+            // Move the Hundred's Place to the One's Place
+            number /= 100;
+
+            if (number < 1)
+                return 0;
+
+            // take the base number and just add the number of letters in 'hundred'
+            return LettersInTheOnesPlace(number) + 7;
+        }
+
+        private static int LettersInTheThousandsPlace(int number)
+        {
+            number %= 10000;
+
+            // Move the Thousand's Place to the One's Place
+            number /= 1000;
+
+            if (number < 1)
+                return 0;
+
+            // take the base number and just add the number of letters in 'thousand'
+            return LettersInTheOnesPlace(number) + 8;
+        }
 
         //public static void Problem18()
         //{
