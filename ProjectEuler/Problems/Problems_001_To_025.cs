@@ -2,13 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 
-namespace ProjectEuler
+namespace ProjectEuler.Problems
 {
-    public static class Problems_1_To_25
+    public class Problems_001_To_025
     {
         public static void Problem1()
         {
@@ -307,7 +304,7 @@ namespace ProjectEuler
 
         public static void Problem12()
         {
-            Console.WriteLine("\n\n\nWhat is the value of the first triangle number to have over five hundred divisors?");
+            Console.WriteLine("\n\n\n12. What is the value of the first triangle number to have over five hundred divisors?");
             long triangleNumber = 1;
 
             for (int i = 2; i < int.MaxValue; i++)
@@ -348,7 +345,7 @@ namespace ProjectEuler
 
         public static void Problem13()
         {
-            Console.WriteLine("\n\n\nWork out the first ten digits of the sum of the following one-hundred 50-digit numbers.");
+            Console.WriteLine("\n\n\n13. Work out the first ten digits of the sum of the following one-hundred 50-digit numbers.");
 
             // NOTE: I could have used BigInt, but I thought it would be fun to do some string addition to mix it up
             List<string> numbers = GetListOfNumbers();
@@ -485,7 +482,7 @@ namespace ProjectEuler
 
         public static void Problem14()
         {
-            Console.WriteLine("\n\n\nWhich starting number, under one million, produces the longest chain in the Collatz sequence.");
+            Console.WriteLine("\n\n\n14. Which starting number, under one million, produces the longest chain in the Collatz sequence.");
 
             int maxSequenceCount = 0;
             int numberWithMaxSequence = 0;
@@ -528,7 +525,7 @@ namespace ProjectEuler
 
         public static void Problem15()
         {
-            Console.WriteLine("\n\n\nStarting in the top left corner of a 2×2 grid, and only being able to move to the right and down,\n" +
+            Console.WriteLine("\n\n\n15. Starting in the top left corner of a 2×2 grid, and only being able to move to the right and down,\n" +
                 "there are exactly 6 routes to the bottom right corner. How many such routes are there through a 20×20 grid?");
 
             Console.WriteLine($"\n\tAnswer: " + CalculateNumberOfRoutes(20, 20));
@@ -564,7 +561,7 @@ namespace ProjectEuler
 
         public static void Problem16()
         {
-            Console.WriteLine("\n\n\nWhat is the sum of the digits of the number 2^1000?");
+            Console.WriteLine("\n\n\n16. What is the sum of the digits of the number 2^1000?");
 
             BigInteger product = 1;
 
@@ -580,7 +577,7 @@ namespace ProjectEuler
 
         public static void Problem17()
         {
-            Console.WriteLine("\n\n\nIf all the numbers from 1 to 1000 (one thousand) inclusive were written out in words, how many letters would be used?");
+            Console.WriteLine("\n\n\n17. If all the numbers from 1 to 1000 (one thousand) inclusive were written out in words, how many letters would be used?");
 
             // NOTE: Do not count spaces or hyphens. For example, 342 (three hundred and forty-two) 
             // contains 23 letters and 115 (one hundred and fifteen) contains 20 letters.
@@ -698,7 +695,7 @@ namespace ProjectEuler
 
         public static void Problem18()
         {
-            Console.WriteLine("\n\n\nFind the maximum total from top to bottom of the triangle below.");
+            Console.WriteLine("\n\n\n18. Find the maximum total from top to bottom of the triangle below.");
             Console.WriteLine(@"
                      75
                     95 64
@@ -760,74 +757,51 @@ namespace ProjectEuler
 
         //public static void Problem19()
         //{
-        //    Console.WriteLine("\n\n\n");
+        //    Console.WriteLine("\n\n\n19. ");
 
         //    Console.WriteLine("\n\tAnswer: ");
         //}
 
         //public static void Problem20()
         //{
-        //    Console.WriteLine("\n\n\n");
+        //    Console.WriteLine("\n\n\n20. ");
 
         //    Console.WriteLine("\n\tAnswer: ");
         //}
 
         //public static void Problem21()
         //{
-        //    Console.WriteLine("\n\n\n");
+        //    Console.WriteLine("\n\n\n21. ");
 
         //    Console.WriteLine("\n\tAnswer: ");
         //}
 
         //public static void Problem22()
         //{
-        //    Console.WriteLine("\n\n\n");
+        //    Console.WriteLine("\n\n\n22. ");
 
         //    Console.WriteLine("\n\tAnswer: ");
         //}
 
         //public static void Problem23()
         //{
-        //    Console.WriteLine("\n\n\n");
+        //    Console.WriteLine("\n\n\n23. ");
 
         //    Console.WriteLine("\n\tAnswer: ");
         //}
 
         //public static void Problem24()
         //{
-        //    Console.WriteLine("\n\n\n");
+        //    Console.WriteLine("\n\n\n24. ");
 
         //    Console.WriteLine("\n\tAnswer: ");
         //}
 
         //public static void Problem25()
         //{
-        //    Console.WriteLine("\n\n\n");
+        //    Console.WriteLine("\n\n\n25. ");
 
         //    Console.WriteLine("\n\tAnswer: ");
         //}
-
-        public static void PrintAllProblems()
-        {
-            for (int i = 1; i <= 25; i++)
-            {
-                PrintProblem(i);
-            }
-        }
-
-        public static void PrintProblem(int problemNumber)
-        {
-            var type = typeof(Problems_1_To_25);
-            var method = type.GetMethod($"Problem{problemNumber}");
-
-            if (method != null)
-            {
-                method.Invoke(null, null);
-
-                // ToDo: Add a pause here, something like "Press enter to continue"...
-            }
-            else
-                Console.WriteLine($"Unable to find Problem {problemNumber}...");
-        }
     }
 }

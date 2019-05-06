@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjectEuler.Problems;
+using System;
 
 namespace ProjectEuler
 {
@@ -14,12 +15,12 @@ namespace ProjectEuler
 
                 if (userChoice == 0)
                 {
-                    Problems_1_To_25.PrintAllProblems();
+                    ProblemPrinter.PrintAllProblems(1, 25, typeof(Problems_001_To_025));
                 }
                 else if (userChoice > 0)
                 {
                     if (userChoice <= 25)
-                        Problems_1_To_25.PrintProblem(userChoice);
+                        ProblemPrinter.PrintProblem(userChoice, typeof(Problems_001_To_025));
                     else
                         Console.WriteLine($"Unable to find Problem {userChoice}...");
                 }
