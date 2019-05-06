@@ -696,12 +696,67 @@ namespace ProjectEuler
             return LettersInTheOnesPlace(number) + 8;
         }
 
-        //public static void Problem18()
-        //{
-        //    Console.WriteLine("\n\n\n");
+        public static void Problem18()
+        {
+            Console.WriteLine("\n\n\nFind the maximum total from top to bottom of the triangle below.");
+            Console.WriteLine(@"
+                     75
+                    95 64
+                  17 47 82
+                 18 35 87 10
+               20 04 82 47 65
+              19 01 23 75 03 34
+            88 02 77 73 07 63 67
+           99 65 04 28 06 16 70 92
+         41 41 26 56 83 40 80 70 33
+        41 48 72 33 47 32 37 16 94 29
+      53 71 44 65 25 43 91 52 97 51 14
+     70 11 33 28 77 73 17 78 39 68 17 57
+   91 71 52 38 17 14 91 43 58 50 27 29 48
+  63 66 04 68 89 53 67 30 73 16 69 87 40 31
+04 62 98 27 23 09 70 98 73 93 38 53 60 04 23");
+            
+            Console.WriteLine("\n\n\tAnswer: " + FindGreatestSumInTriangle(0, 0, GetTriangleOfNumbers()));
+        }
 
-        //    Console.WriteLine("\n\tAnswer: ");
-        //}
+        private static int FindGreatestSumInTriangle(int row, int col, List<List<int>> triangle)
+        {
+            // If we aren't at the bottom
+            if (row < triangle.Count() - 1)
+            {
+
+                int leftSum = FindGreatestSumInTriangle(row + 1, col, triangle);
+
+                int rightSum = FindGreatestSumInTriangle(row + 1, col + 1, triangle);
+
+                // We are adding bottom up by picking the biggest child
+                return triangle[row][col] + Math.Max(leftSum, rightSum);
+            }
+
+            return triangle[row][col];
+        }
+
+        private static List<List<int>> GetTriangleOfNumbers()
+        {
+            return new List<List<int>>
+            {
+                new List<int> { 75 },
+                new List<int> { 95, 64 },
+                new List<int> { 17, 47, 82 },
+                new List<int> { 18, 35, 87, 10 },
+                new List<int> { 20, 04, 82, 47, 65 },
+                new List<int> { 19, 01, 23, 75, 03, 34 },
+                new List<int> { 88, 02, 77, 73, 07, 63, 67 },
+                new List<int> { 99, 65, 04, 28, 06, 16, 70, 92 },
+                new List<int> { 41, 41, 26, 56, 83, 40, 80, 70, 33 },
+                new List<int> { 41, 48, 72, 33, 47, 32, 37, 16, 94, 29 },
+                new List<int> { 53, 71, 44, 65, 25, 43, 91, 52, 97, 51, 14 },
+                new List<int> { 70, 11, 33, 28, 77, 73, 17, 78, 39, 68, 17, 57 },
+                new List<int> { 91, 71, 52, 38, 17, 14, 91, 43, 58, 50, 27, 29, 48 },
+                new List<int> { 63, 66, 04, 68, 89, 53, 67, 30, 73, 16, 69, 87, 40, 31 },
+                new List<int> { 04, 62, 98, 27, 23, 09, 70, 98, 73, 93, 38, 53, 60, 04, 23 }
+            };
+        }
 
         //public static void Problem19()
         //{
@@ -756,17 +811,11 @@ namespace ProjectEuler
         {
             for (int i = 1; i <= 25; i++)
             {
-                var type = typeof(Problems_1_To_25);
-                var method = type.GetMethod($"Problem{i}");
-
-                if (method != null)
-                    method.Invoke(null, null);
-                else
-                    Console.WriteLine($"\n\nUnable to find Problem {i}...");
+                PrintProblem(i);
             }
         }
 
-        public static bool PrintProblem(int problemNumber)
+        public static void PrintProblem(int problemNumber)
         {
             var type = typeof(Problems_1_To_25);
             var method = type.GetMethod($"Problem{problemNumber}");
@@ -774,11 +823,11 @@ namespace ProjectEuler
             if (method != null)
             {
                 method.Invoke(null, null);
-                return true;
-            }
 
-            Console.WriteLine($"Unable to find Problem {problemNumber}...");
-            return false;
+                // ToDo: Add a pause here, something like "Press enter to continue"...
+            }
+            else
+                Console.WriteLine($"Unable to find Problem {problemNumber}...");
         }
     }
 }
