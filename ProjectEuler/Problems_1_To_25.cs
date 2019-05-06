@@ -561,9 +561,6 @@ namespace ProjectEuler
             return numberOfTotalRoutes / (numberOfRightRoutes * numberOfDownRoutes);
         }
 
-        ///// <summary>
-        ///// 
-        ///// </summary>
         //public static void Problem16()
         //{
         //    Console.WriteLine("\n\n\n");
@@ -571,9 +568,6 @@ namespace ProjectEuler
         //    Console.WriteLine("\n\tAnswer: ");
         //}
 
-        ///// <summary>
-        ///// 
-        ///// </summary>
         //public static void Problem17()
         //{
         //    Console.WriteLine("\n\n\n");
@@ -581,9 +575,6 @@ namespace ProjectEuler
         //    Console.WriteLine("\n\tAnswer: ");
         //}
 
-        ///// <summary>
-        ///// 
-        ///// </summary>
         //public static void Problem18()
         //{
         //    Console.WriteLine("\n\n\n");
@@ -591,9 +582,6 @@ namespace ProjectEuler
         //    Console.WriteLine("\n\tAnswer: ");
         //}
 
-        ///// <summary>
-        ///// 
-        ///// </summary>
         //public static void Problem19()
         //{
         //    Console.WriteLine("\n\n\n");
@@ -601,9 +589,6 @@ namespace ProjectEuler
         //    Console.WriteLine("\n\tAnswer: ");
         //}
 
-        ///// <summary>
-        ///// 
-        ///// </summary>
         //public static void Problem20()
         //{
         //    Console.WriteLine("\n\n\n");
@@ -611,9 +596,6 @@ namespace ProjectEuler
         //    Console.WriteLine("\n\tAnswer: ");
         //}
 
-        ///// <summary>
-        ///// 
-        ///// </summary>
         //public static void Problem21()
         //{
         //    Console.WriteLine("\n\n\n");
@@ -621,9 +603,6 @@ namespace ProjectEuler
         //    Console.WriteLine("\n\tAnswer: ");
         //}
 
-        ///// <summary>
-        ///// 
-        ///// </summary>
         //public static void Problem22()
         //{
         //    Console.WriteLine("\n\n\n");
@@ -631,9 +610,6 @@ namespace ProjectEuler
         //    Console.WriteLine("\n\tAnswer: ");
         //}
 
-        ///// <summary>
-        ///// 
-        ///// </summary>
         //public static void Problem23()
         //{
         //    Console.WriteLine("\n\n\n");
@@ -641,9 +617,6 @@ namespace ProjectEuler
         //    Console.WriteLine("\n\tAnswer: ");
         //}
 
-        ///// <summary>
-        ///// 
-        ///// </summary>
         //public static void Problem24()
         //{
         //    Console.WriteLine("\n\n\n");
@@ -651,9 +624,6 @@ namespace ProjectEuler
         //    Console.WriteLine("\n\tAnswer: ");
         //}
 
-        ///// <summary>
-        ///// 
-        ///// </summary>
         //public static void Problem25()
         //{
         //    Console.WriteLine("\n\n\n");
