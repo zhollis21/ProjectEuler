@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace ProjectEuler
@@ -527,9 +528,69 @@ namespace ProjectEuler
         {
             Console.WriteLine("\n\n\nStarting in the top left corner of a 2×2 grid, and only being able to move to the right and down,\n" +
                 "there are exactly 6 routes to the bottom right corner. How many such routes are there through a 20×20 grid?");
-            
+
             for (int i = 1; i <= 20; i++)
-                Console.WriteLine($"\n\tAnswer for {i} is: " + CalculateNumberOfRoutes(0, 0, i, i));
+            {
+                DateTime startTime = DateTime.Now;
+                UnsignedLong retValue = new UnsignedLong();
+                CalculateNumberOfRoutesAsync(0, 0, i, i, retValue);
+                Console.WriteLine($"\n\tAnswer for {i} is: " + retValue.Value);
+                Console.WriteLine("\tTook: " + (DateTime.Now - startTime)); 
+            }
+        }
+
+        private class UnsignedLong
+        {
+            public ulong Value;
+        }
+
+        private static void CalculateNumberOfRoutesAsync(int xPos, int yPos, int xBound, int yBound, UnsignedLong returnValue)
+        {
+            Console.WriteLine("Running Thread " + xPos + ", " + yPos);
+            if (xPos == xBound && yPos == yBound)
+            {
+                returnValue.Value = 1;
+                return;
+            }
+            
+            Thread rightThread = null, downThread = null;
+            UnsignedLong rightReturnValue = new UnsignedLong(), downReturnValue = new UnsignedLong();
+
+            // Go Right
+            if (xPos + 1 <= xBound)
+            {
+                if (xPos < 2 & xPos < 2)
+                {
+                    rightThread = new Thread(() => CalculateNumberOfRoutesAsync(xPos + 1, yPos, xBound, yBound, rightReturnValue));
+                    rightThread.Start();
+                }
+                else
+                {
+                    rightReturnValue.Value = CalculateNumberOfRoutes(xPos + 1, yPos, xBound, yBound);
+                }
+            }
+
+            // Go Down
+            if (yPos + 1 <= yBound)
+            {
+                if (xPos < 2 & yPos < 2)
+                {
+                    downThread = new Thread(() => CalculateNumberOfRoutesAsync(xPos, yPos + 1, xBound, yBound, downReturnValue));
+                    downThread.Start();
+                }
+                else
+                {
+                    downReturnValue.Value = CalculateNumberOfRoutes(xPos, yPos + 1, xBound, yBound);
+                }
+            }
+
+            if (rightThread != null)
+                rightThread.Join();
+
+            if (downThread != null)
+                downThread.Join();
+
+            returnValue.Value = rightReturnValue.Value + downReturnValue.Value;
         }
 
         private static ulong CalculateNumberOfRoutes(int xPos, int yPos, int xBound, int yBound)
