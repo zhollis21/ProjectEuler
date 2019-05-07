@@ -6,4 +6,14 @@
     <StartupObject>ProjectEuler.Program</StartupObject>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Problems\p067_triangle.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Helpers\p067_triangle.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>

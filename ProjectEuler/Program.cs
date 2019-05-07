@@ -16,11 +16,24 @@ namespace ProjectEuler
                 if (userChoice == 0)
                 {
                     ProblemPrinter.PrintAllProblems(1, 25, typeof(Problems_001_To_025));
+                    ProblemPrinter.PrintAllProblems(26, 50, typeof(Problems_026_To_050));
+                    ProblemPrinter.PrintAllProblems(51, 75, typeof(Problems_051_To_075));
+                    ProblemPrinter.PrintAllProblems(76, 100, typeof(Problems_076_To_100));
                 }
                 else if (userChoice > 0)
                 {
                     if (userChoice <= 25)
                         ProblemPrinter.PrintProblem(userChoice, typeof(Problems_001_To_025));
+
+                    else if (userChoice <= 50)
+                        ProblemPrinter.PrintProblem(userChoice, typeof(Problems_026_To_050));
+
+                    else if (userChoice <= 75)
+                        ProblemPrinter.PrintProblem(userChoice, typeof(Problems_051_To_075));
+
+                    else if (userChoice <= 100)
+                        ProblemPrinter.PrintProblem(userChoice, typeof(Problems_076_To_100));
+
                     else
                         Console.WriteLine($"Unable to find Problem {userChoice}...");
                 }
