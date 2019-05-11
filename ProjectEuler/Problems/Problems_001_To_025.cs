@@ -141,11 +141,29 @@ namespace ProjectEuler.Problems
         public static void Problem6()
         {
             Console.WriteLine("\n\n\n6. Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum.");
+
+            long sumOfSquares = 0;
+
+            for(int i = 1; i <= 100; i++)
+            {
+                sumOfSquares += i * i;
+            }
+
+            long sumOfFirsthundredNums = 0;
+
+            for(int index = 1; index <= 100; index++)
+            {
+                sumOfFirsthundredNums += index;
+            }            
+
+            Console.WriteLine("\n\tAnswer: " + (sumOfFirsthundredNums * sumOfFirsthundredNums - sumOfSquares));
         }
 
         public static void Problem7()
         {
             Console.WriteLine("\n\n\n7. What is the 10,001st prime number?");
+
+            Console.WriteLine("\n\tAnswer: ");
         }
 
         public static void Problem8()
