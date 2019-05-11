@@ -123,7 +123,7 @@ namespace ProjectEuler.Problems
 
         public static void Problem67()
         {
-            Console.WriteLine("\n\n\n67. Find the maximum total from top to bottom in triangle.txt,\na 15K text file containing a triangle with one-hundred rows.");
+            Console.WriteLine("\n\n\n67. ");
 
             DateTime startTime = DateTime.Now;
             var triangle = GetTriangle();
