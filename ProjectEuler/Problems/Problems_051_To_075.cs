@@ -123,64 +123,32 @@ namespace ProjectEuler.Problems
 
         public static void Problem67()
         {
-            Console.WriteLine("\n\n\n67. ");
+            Console.WriteLine("\n\n\n67. Find the maximum total from top to bottom in triangle.txt,\na 15K text file containing a triangle with one-hundred rows.");
 
             DateTime startTime = DateTime.Now;
             var triangle = GetTriangle();
 
-            FindGreatestSumInTriangleMultithread(0, 0, triangle, out ulong greatestSum);
+            ulong greatestSum = FindGreatestSumInTriangle(triangle);
 
             Console.WriteLine("\n\tAnswer: " + greatestSum);
 
             Console.WriteLine("\tTook: " + (DateTime.Now - startTime));
         }
 
-        private static void FindGreatestSumInTriangleMultithread(int row, int col, List<List<ulong>> triangle, out ulong greatestSum)
+        private static ulong FindGreatestSumInTriangle(List<List<ulong>> triangle)
         {
-            // If we aren't at the bottom
-            if (row < triangle.Count() - 1)
+            // Start at the bottom of the triangle over-writing the parents with the addition of the parents and the parent's biggest child
+            for (int parentRow = triangle.Count - 2; parentRow >= 0; parentRow--)
             {
-                ulong leftSum = 0, rightSum = 0;
-
-                if (row < 3) // We don't want too many threads
+                for (int parentCol = 0; parentCol < triangle[parentRow].Count; parentCol++)
                 {
-                    var leftThread = new Thread(() => FindGreatestSumInTriangleMultithread(row + 1, col, triangle, out leftSum));
-
-                    var rightThread = new Thread(() => FindGreatestSumInTriangleMultithread(row + 1, col + 1, triangle, out rightSum));
-
-                    leftThread.Start();
-                    rightThread.Start();
-
-                    leftThread.Join();
-                    rightThread.Join();
+                    // Find the biggest child and add it to the parent
+                    triangle[parentRow][parentCol] += Math.Max(triangle[parentRow + 1][parentCol], triangle[parentRow + 1][parentCol + 1]);
                 }
-                else
-                {
-                    leftSum = FindGreatestSumInTriangle(row + 1, col, triangle);
-
-                    rightSum = FindGreatestSumInTriangle(row + 1, col + 1, triangle);
-                }
-                // We are adding bottom up by picking the biggest child
-                greatestSum = triangle[row][col] + Math.Max(leftSum, rightSum);
             }
 
-            greatestSum = triangle[row][col];
-        }
-
-        private static ulong FindGreatestSumInTriangle(int row, int col, List<List<ulong>> triangle)
-        {
-            // If we aren't at the bottom
-            if (row < triangle.Count() - 1)
-            {
-                ulong leftSum = FindGreatestSumInTriangle(row + 1, col, triangle);
-
-                ulong rightSum = FindGreatestSumInTriangle(row + 1, col + 1, triangle);
-
-                // We are adding bottom up by picking the biggest child
-                return triangle[row][col] + Math.Max(leftSum, rightSum);
-            }
-
-            return triangle[row][col];
+            // The top of the triangle now has the greatest sum
+            return triangle[0][0];
         }
 
         public static List<List<ulong>> GetTriangle()
