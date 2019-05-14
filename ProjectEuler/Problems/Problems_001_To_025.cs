@@ -140,12 +140,25 @@ namespace ProjectEuler.Problems
 
         public static void Problem6()
         {
-            Console.WriteLine("\n\n\n6. Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum.");
+            Console.WriteLine("\n\n\n6. Find the difference between the sum of the squares of\nthe first one hundred natural numbers and the square of the sum.");
+
+            long sumOfSquares = 0;
+            long sumOfFirstHundredNums = 0;
+
+            for (int i = 1; i <= 100; i++)
+            {
+                sumOfSquares += i * i;
+                sumOfFirstHundredNums += i;
+            }
+
+            Console.WriteLine("\n\tAnswer: " + (sumOfFirstHundredNums * sumOfFirstHundredNums - sumOfSquares));
         }
 
         public static void Problem7()
         {
             Console.WriteLine("\n\n\n7. What is the 10,001st prime number?");
+
+            Console.WriteLine("\n\tAnswer: ");
         }
 
         public static void Problem8()
@@ -712,7 +725,7 @@ namespace ProjectEuler.Problems
    91 71 52 38 17 14 91 43 58 50 27 29 48
   63 66 04 68 89 53 67 30 73 16 69 87 40 31
 04 62 98 27 23 09 70 98 73 93 38 53 60 04 23");
-            
+
             Console.WriteLine("\n\n\tAnswer: " + FindGreatestSumInTriangle(0, 0, GetTriangleOfNumbers()));
         }
 
