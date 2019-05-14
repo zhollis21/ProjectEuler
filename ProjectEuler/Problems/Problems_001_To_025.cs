@@ -782,12 +782,43 @@ namespace ProjectEuler.Problems
         //    Console.WriteLine("\n\tAnswer: ");
         //}
 
-        //public static void Problem21()
-        //{
-        //    Console.WriteLine("\n\n\n21. ");
+        public static void Problem21()
+        {
+            Console.WriteLine("\n\n\n21. Evaluate the sum of all the amicable numbers under 10000.");
 
-        //    Console.WriteLine("\n\tAnswer: ");
-        //}
+            int sumOfAmicableNumbers = 0;
+
+            for (int i = 2; i < 10000; i++)
+            {
+                int sumOfDivisors = SumOfDivisors(i);
+
+                // If the sum of the sum of the divisors is equal to i
+                // then i is an amicable numbers
+                if (sumOfDivisors != i && SumOfDivisors(sumOfDivisors) == i)
+                    sumOfAmicableNumbers += i;
+
+                // Also note that while you could record both numbers i and sumOfDivisors,
+                // I'm just keeping a simple total so I won't have to keep track of a list.
+                // However this does mean duplicate calculations, but it is still probably
+                // more performant than searching to see if something is in a list or not
+            }
+
+            Console.WriteLine("\n\tAnswer: " + sumOfAmicableNumbers);
+        }
+
+        private static int SumOfDivisors(int num)
+        {
+            int sumOfDivisors = 1;
+            int midpoint = num / 2;
+
+            for (int i = 2; i <= midpoint; i++)
+            {
+                if (num % i == 0)
+                    sumOfDivisors += i;
+            }
+
+            return sumOfDivisors;
+        }
 
         //public static void Problem22()
         //{
