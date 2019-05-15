@@ -7,10 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Helpers\p022_names.txt" />
     <None Remove="Problems\p067_triangle.txt" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="Helpers\p022_names.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Helpers\p067_triangle.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
