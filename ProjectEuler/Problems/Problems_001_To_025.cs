@@ -768,19 +768,43 @@ namespace ProjectEuler.Problems
             };
         }
 
-        //public static void Problem19()
-        //{
-        //    Console.WriteLine("\n\n\n19. ");
+        public static void Problem19()
+        {
+            Console.WriteLine("\n\n\n19. How many Sundays fell on the first of the month during the twentieth century (1 Jan 1901 to 31 Dec 2000)?");
 
-        //    Console.WriteLine("\n\tAnswer: ");
-        //}
+            int sundaysOnTheFirst = 0;
 
-        //public static void Problem20()
-        //{
-        //    Console.WriteLine("\n\n\n20. ");
+            // Loop over the first of every month and see if it's a sunday
+            for (DateTime date = new DateTime(1901, 1, 1); date.Year < 2001; date = date.AddMonths(1))
+            {
+                if (date.DayOfWeek == DayOfWeek.Sunday)
+                    sundaysOnTheFirst++;
+            }
 
-        //    Console.WriteLine("\n\tAnswer: ");
-        //}
+            Console.WriteLine("\n\tAnswer: " + sundaysOnTheFirst);
+        }
+
+        public static void Problem20()
+        {
+            Console.WriteLine("\n\n\n20. Find the sum of the digits in the number 100!");
+
+            BigInteger product = 1;
+
+            for (int i = 2; i < 101; i++)
+            {
+                product *= i;
+            }
+
+            int sumOfDigits = 0;
+            string digits = product.ToString();
+
+            for (int i = 0; i < digits.Length; i++)
+            {
+                sumOfDigits += Convert.ToInt32(digits[i].ToString());
+            }
+
+            Console.WriteLine("\n\tAnswer: " + sumOfDigits);
+        }
 
         //public static void Problem21()
         //{

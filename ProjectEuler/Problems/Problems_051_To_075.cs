@@ -125,14 +125,11 @@ namespace ProjectEuler.Problems
         {
             Console.WriteLine("\n\n\n67. Find the maximum total from top to bottom in triangle.txt,\na 15K text file containing a triangle with one-hundred rows.");
 
-            DateTime startTime = DateTime.Now;
             var triangle = GetTriangle();
 
             ulong greatestSum = FindGreatestSumInTriangle(triangle);
 
             Console.WriteLine("\n\tAnswer: " + greatestSum);
-
-            Console.WriteLine("\tTook: " + (DateTime.Now - startTime));
         }
 
         private static ulong FindGreatestSumInTriangle(List<List<ulong>> triangle)
