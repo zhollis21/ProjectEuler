@@ -123,7 +123,7 @@ namespace ProjectEuler.Problems
 
         public static void Problem67()
         {
-            Console.WriteLine("\n\n\n67. Find the maximum total from top to bottom in triangle.txt,\na 15K text file containing a triangle with one-hundred rows.");
+            Console.WriteLine("\n\n\n67. Find the maximum total from top to bottom in triangle.txt,\n\ta 15K text file containing a triangle with one-hundred rows.");
 
             var triangle = GetTriangle();
 
@@ -148,13 +148,13 @@ namespace ProjectEuler.Problems
             return triangle[0][0];
         }
 
-        public static List<List<ulong>> GetTriangle()
+        private static List<List<ulong>> GetTriangle()
         {
             string path = @"Helpers/p067_triangle.txt";
 
             if (!File.Exists(path))
             {
-                Console.WriteLine($"Unable to find the file '{path}'...");
+                Console.WriteLine($"\n\tUnable to find the file '{path}'...");
                 return null;
             }
 

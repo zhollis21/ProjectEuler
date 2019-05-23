@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Numerics;
 
@@ -813,12 +814,70 @@ namespace ProjectEuler.Problems
         //    Console.WriteLine("\n\tAnswer: ");
         //}
 
-        //public static void Problem22()
-        //{
-        //    Console.WriteLine("\n\n\n22. ");
+        public static void Problem22()
+        {
+            Console.WriteLine("\n\n\n22. Using names.txt, a 46K text file containing over five-thousand first names, begin by sorting it\n\tinto alphabetical order. " +
+                              "Then working out the alphabetical value for each name, multiply this\n\tvalue by its alphabetical position in the list to obtain a name score. " +
+                              "For example, when the\n\tlist is sorted into alphabetical order, COLIN, which is worth 3 + 15 + 12 + 9 + 14 = 53, is\n\tthe 938th name in the list. " +
+                              "So, COLIN would obtain a score of 938 × 53 = 49714. " +
+                              "What is the\n\ttotal of all the name scores in the file ? ");
 
-        //    Console.WriteLine("\n\tAnswer: ");
-        //}
+            var sortedNames = GetNamesInAlphaOrder();
+
+            BigInteger sumOfNameScores = 0;
+
+            for (int i = 0; i < sortedNames.Count; i++)
+            {
+                // We have to add 1 to i, because i is the index, but we need the position starting from 1
+                // i.e. Element 0 is the 1st thing, not the 0th thing
+                sumOfNameScores += (i + 1) * SumOfCharacterPositions(sortedNames[i]);
+            }
+
+            Console.WriteLine("\n\tAnswer: " + sumOfNameScores);
+        }
+
+        private static int SumOfCharacterPositions(string name)
+        {
+            int sum = 0;
+            int referenceCode = 'A' - 1;
+
+            // We grab each character code and subract it from the reference code,
+            // so we can get what number of the alphabet it is
+            foreach (int characterCode in name)
+            {
+                sum += characterCode - referenceCode;
+            }
+
+            return sum;
+        }
+
+        private static List<string> GetNamesInAlphaOrder()
+        {
+            string path = @"Helpers/p022_names.txt";
+
+            if (!File.Exists(path))
+            {
+                Console.WriteLine($"\n\tUnable to find the file '{path}'...");
+                return null;
+            }
+
+            string line;
+
+            StreamReader file = new StreamReader(path);             
+
+            List<string> result = new List<string>();
+
+            while ((line = file.ReadLine()) != null)
+            {
+                result.AddRange(line.Split(','));
+            }
+
+            file.Close();
+
+            result.Sort();
+
+            return result;
+        }
 
         //public static void Problem23()
         //{
