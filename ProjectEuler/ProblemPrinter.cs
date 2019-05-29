@@ -25,7 +25,7 @@ namespace ProjectEuler
 
                 method.Invoke(null, null);
 
-                Console.WriteLine($"The problem took {DateTime.Now - start}, press <Enter> to continue...");
+                Console.WriteLine($"\nThe problem took {DateTime.Now - start}, press <Enter> to continue...");
                 Console.ReadLine();
             }
             else
