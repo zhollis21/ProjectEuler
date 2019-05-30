@@ -815,11 +815,11 @@ namespace ProjectEuler.Problems
 
             for (int i = 2; i < 10000; i++)
             {
-                int sumOfDivisors = SumOfDivisors(i);
+                int sumOfDivisors = SumOfProperDivisors(i);
 
                 // If the sum of the sum of the divisors is equal to i
                 // then i is an amicable numbers
-                if (sumOfDivisors != i && SumOfDivisors(sumOfDivisors) == i)
+                if (sumOfDivisors != i && SumOfProperDivisors(sumOfDivisors) == i)
                     sumOfAmicableNumbers += i;
 
                 // Also note that while you could record both numbers i and sumOfDivisors,
@@ -831,7 +831,7 @@ namespace ProjectEuler.Problems
             Console.WriteLine("\n\tAnswer: " + sumOfAmicableNumbers);
         }
 
-        private static int SumOfDivisors(int num)
+        private static int SumOfProperDivisors(int num)
         {
             int sumOfDivisors = 1;
             int midpoint = num / 2;
@@ -910,12 +910,36 @@ namespace ProjectEuler.Problems
             return result;
         }
 
-        //public static void Problem23()
-        //{
-        //    Console.WriteLine("\n\n\n23. ");
+        public static void Problem23()
+        {
+            Console.WriteLine("\n\n\n23. A number n is called abundant if the sum of its proper divisors is greater than n." +
+                              "\n\tFind the sum of all the positive integers which cannot be written as the sum of two abundant numbers.");
 
-        //    Console.WriteLine("\n\tAnswer: ");
-        //}
+            List<int> abundantNumbers = new List<int>();
+            List<int> nonAbundantSumNumbers = new List<int>();
+
+            for (int i = 1; i < 28124; i++)
+            {
+                // We go ahead and put all possible numbers in the non sum list
+                nonAbundantSumNumbers.Add(i);
+
+                if (SumOfProperDivisors(i) > i)
+                    abundantNumbers.Add(i);
+            }
+
+            // Remove all the combinations of abundant numbers from the non sum list
+            for (int i = 0; i < abundantNumbers.Count; i++)
+            {
+                // We start j at i so we do not to duplicate previous sum calculations
+                // i.e. 1 + 6 is the same as 6 + 1, so there is no point in starting at the beginning
+                for (int j = i; j < abundantNumbers.Count; j++)
+                {
+                    nonAbundantSumNumbers.Remove(abundantNumbers[i] + abundantNumbers[j]);
+                }
+            }
+
+            Console.WriteLine("\n\tAnswer: " + nonAbundantSumNumbers.Sum());
+        }
 
         //public static void Problem24()
         //{

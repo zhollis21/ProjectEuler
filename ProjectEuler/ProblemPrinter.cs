@@ -21,9 +21,12 @@ namespace ProjectEuler
 
             if (method != null)
             {
+                DateTime start = DateTime.Now;
+
                 method.Invoke(null, null);
 
-                // ToDo: Add a pause here, something like "Press enter to continue"...
+                Console.WriteLine($"\nThe problem took {DateTime.Now - start}, press <Enter> to continue...");
+                Console.ReadLine();
             }
             else
                 Console.WriteLine($"Unable to find Problem {problemNumber}...");
