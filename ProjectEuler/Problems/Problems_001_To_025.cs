@@ -894,7 +894,7 @@ namespace ProjectEuler.Problems
 
             string line;
 
-            StreamReader file = new StreamReader(path);             
+            StreamReader file = new StreamReader(path);
 
             List<string> result = new List<string>();
 
@@ -948,11 +948,24 @@ namespace ProjectEuler.Problems
         //    Console.WriteLine("\n\tAnswer: ");
         //}
 
-        //public static void Problem25()
-        //{
-        //    Console.WriteLine("\n\n\n25. ");
+        public static void Problem25()
+        {
+            Console.WriteLine("\n\n\n25. What is the index of the first term in the Fibonacci sequence to contain 1000 digits?");
 
-        //    Console.WriteLine("\n\tAnswer: ");
-        //}
+            int index = 2;
+            BigInteger previousNumber = 1;
+            BigInteger currentNumber = 1;
+
+            do
+            {
+                BigInteger temp = previousNumber;
+                previousNumber = currentNumber;
+                currentNumber += temp;
+                index++;
+            }
+            while (currentNumber.ToString().Length < 1000);
+
+            Console.WriteLine("\n\tAnswer: " + index);
+        }
     }
 }
