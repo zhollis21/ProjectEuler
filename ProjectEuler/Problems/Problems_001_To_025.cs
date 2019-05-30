@@ -917,12 +917,73 @@ namespace ProjectEuler.Problems
         //    Console.WriteLine("\n\tAnswer: ");
         //}
 
-        //public static void Problem24()
-        //{
-        //    Console.WriteLine("\n\n\n24. ");
+        public static void Problem24()
+        {
+            Console.WriteLine("\n\n\n24. What is the millionth lexicographic permutation of the digits 0, 1, 2, 3, 4, 5, 6, 7, 8 and 9?");
+            
+            List<PermutationCharacter> characters = new List<PermutationCharacter>();
 
-        //    Console.WriteLine("\n\tAnswer: ");
-        //}
+            for (int i = 0; i < 10; i++)
+            {
+                characters.Add(new PermutationCharacter(char.Parse(i.ToString())));
+            }
+
+            var result = RecursivePermutations(characters, 0);
+
+            Console.Write("\n\tAnswer: ");
+            result.Value.ForEach(x => Console.Write(x));
+            Console.WriteLine();
+        }
+
+        private static KeyValuePair<int, List<char>> RecursivePermutations(List<PermutationCharacter> characters, int count)
+        {
+            // If there is only one available letter we know we are at the last layer of the recursion
+            if (characters.Where(x => x.IsAvailable).Count() == 1)
+            {
+                if (++count == 1000000)
+                    return new KeyValuePair<int, List<char>>(count, new List<char> { characters.Where(x => x.IsAvailable).First().Character });
+                else
+                    return new KeyValuePair<int, List<char>>(count, null);
+            }
+
+            foreach (PermutationCharacter pc in characters)
+            {
+                // Since we don't allow repetition in our permutations, we mark the ones in use and unmark them when we are done
+                if (pc.IsAvailable)
+                {
+                    pc.IsAvailable = false;
+
+                    var result = RecursivePermutations(characters, count);
+                    count = result.Key;
+
+                    // We only return a non null value when we reached 1 million
+                    if (result.Value != null)
+                    {
+                        // We insert at the beginning since we go last char to first char
+                        result.Value.Insert(0, pc.Character);
+                        return result;
+                    }
+
+                    pc.IsAvailable = true;
+                }
+            }
+            
+            // We didn't find the 1 millionth yet, so we go back a level
+            return new KeyValuePair<int, List<char>>(count, null);
+        }
+
+        // Simple class to hold a character and a bool to let us know if we can pick it
+        private class PermutationCharacter
+        {
+            public PermutationCharacter(char character)
+            {
+                Character = character;
+            }
+
+            public bool IsAvailable = true;
+
+            public char Character;
+        }
 
         //public static void Problem25()
         //{
