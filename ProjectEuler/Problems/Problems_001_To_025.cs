@@ -72,7 +72,7 @@ namespace ProjectEuler.Problems
         {
             long squareRoot = (long)Math.Sqrt(number);
 
-            for (long i = 2; i < squareRoot; i++)
+            for (long i = 2; i <= squareRoot; i++)
                 if (number % i == 0)
                     return false;
 
@@ -160,22 +160,25 @@ namespace ProjectEuler.Problems
             Console.WriteLine("\n\n\n7. What is the 10,001st prime number?");
 
             List<int> primeNumbers = new List<int>() { 2 };
-            int i = 3;
+            int number = 3;
 
             while (primeNumbers.Count < 10001)
             {
                 bool isPrime = true;
 
-                foreach (int prime in primeNumbers)
+                for (int primeIndex = 0; primeIndex < primeNumbers.Count; primeIndex++)
                 {
-                    if (i % prime == 0)
+                    if (number % primeNumbers[primeIndex] == 0)
+                    {
                         isPrime = false;
+                        break;
+                    }
                 }
 
                 if (isPrime)
-                    primeNumbers.Add(i);
+                    primeNumbers.Add(number);
 
-                i += 2;
+                number += 2;
             }
 
             Console.WriteLine("\n\tAnswer: " + primeNumbers[10000]);
@@ -254,10 +257,11 @@ namespace ProjectEuler.Problems
                 }
 
                 if (isPrime)
+                {
                     listOfPrimes.Add(number);
+                    sum += number;
+                }
             }
-
-            listOfPrimes.ForEach(x => sum += x);
 
             Console.WriteLine("\n\tAnswer: " + sum);
         }
