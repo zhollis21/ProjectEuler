@@ -159,7 +159,26 @@ namespace ProjectEuler.Problems
         {
             Console.WriteLine("\n\n\n7. What is the 10,001st prime number?");
 
-            Console.WriteLine("\n\tAnswer: ");
+            List<int> primeNumbers = new List<int>() { 2 };
+            int i = 3;
+
+            while (primeNumbers.Count < 10001)
+            {
+                bool isPrime = true;
+
+                foreach (int prime in primeNumbers)
+                {
+                    if (i % prime == 0)
+                        isPrime = false;
+                }
+
+                if (isPrime)
+                    primeNumbers.Add(i);
+
+                i += 2;
+            }
+
+            Console.WriteLine("\n\tAnswer: " + primeNumbers[10000]);
         }
 
         public static void Problem8()
@@ -944,7 +963,7 @@ namespace ProjectEuler.Problems
         public static void Problem24()
         {
             Console.WriteLine("\n\n\n24. What is the millionth lexicographic permutation of the digits 0, 1, 2, 3, 4, 5, 6, 7, 8 and 9?");
-            
+
             List<PermutationCharacter> characters = new List<PermutationCharacter>();
 
             for (int i = 0; i < 10; i++)
@@ -991,7 +1010,7 @@ namespace ProjectEuler.Problems
                     pc.IsAvailable = true;
                 }
             }
-            
+
             // We didn't find the 1 millionth yet, so we go back a level
             return new KeyValuePair<int, List<char>>(count, null);
         }

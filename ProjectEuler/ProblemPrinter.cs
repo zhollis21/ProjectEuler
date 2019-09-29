@@ -7,9 +7,9 @@ namespace ProjectEuler
 {
     public static class ProblemPrinter
     {
-        public static void PrintAllProblems(int start, int end, Type objectType)
+        public static void PrintAllProblems(int startNumber, int endNumber, Type objectType)
         {
-            for (int i = 1; i <= 25; i++)
+            for (int i = startNumber; i <= endNumber; i++)
             {
                 PrintProblem(i, objectType);
             }
@@ -29,7 +29,9 @@ namespace ProjectEuler
                 Console.ReadLine();
             }
             else
+            {
                 Console.WriteLine($"Unable to find Problem {problemNumber}...");
+            }
         }
     }
 }
