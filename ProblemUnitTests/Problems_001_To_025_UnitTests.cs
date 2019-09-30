@@ -3,6 +3,8 @@ using ProjectEuler.Problems;
 
 namespace ProblemUnitTests
 {
+    [TestFixture]
+    [Parallelizable(ParallelScope.All)]
     public class Problems_001_To_025_UnitTests
     {
         [SetUp]
@@ -11,155 +13,155 @@ namespace ProblemUnitTests
         }
 
         [Test]
-        public void Problem1_ReturnsCorrectAnswer()
+        public void Problem001_ReturnsCorrectAnswer()
         {
-            Assert.AreEqual(Problems_001_To_025.Problem1(), "233168");
+            Assert.AreEqual("233168", Problems_001_To_025.Problem001());
         }
 
 
         [Test]
-        public void Problem2_ReturnsCorrectAnswer()
+        public void Problem002_ReturnsCorrectAnswer()
         {
-            Assert.AreEqual(Problems_001_To_025.Problem2(), "4613732");
+            Assert.AreEqual("4613732", Problems_001_To_025.Problem002());
         }
 
 
         [Test]
-        public void Problem3_ReturnsCorrectAnswer()
+        public void Problem003_ReturnsCorrectAnswer()
         {
-            Assert.AreEqual(Problems_001_To_025.Problem3(), "6857");
+            Assert.AreEqual("6857", Problems_001_To_025.Problem003());
         }
 
         [Test]
-        public void Problem4_ReturnsCorrectAnswer()
+        public void Problem004_ReturnsCorrectAnswer()
         {
-            Assert.AreEqual(Problems_001_To_025.Problem4(), "906609");
+            Assert.AreEqual("906609", Problems_001_To_025.Problem004());
         }
 
         [Test]
-        public void Problem5_ReturnsCorrectAnswer()
+        public void Problem005_ReturnsCorrectAnswer()
         {
-            Assert.AreEqual(Problems_001_To_025.Problem5(), "232792560");
+            Assert.AreEqual("232792560", Problems_001_To_025.Problem005());
         }
 
         [Test]
-        public void Problem6_ReturnsCorrectAnswer()
+        public void Problem006_ReturnsCorrectAnswer()
         {
-            Assert.AreEqual(Problems_001_To_025.Problem6(), "25164150");
+            Assert.AreEqual("25164150", Problems_001_To_025.Problem006());
         }
 
         [Test]
-        public void Problem7_ReturnsCorrectAnswer()
+        public void Problem007_ReturnsCorrectAnswer()
         {
-            Assert.AreEqual(Problems_001_To_025.Problem7(), "104743");
+            Assert.AreEqual("104743", Problems_001_To_025.Problem007());
         }
 
         [Test]
-        public void Problem8_ReturnsCorrectAnswer()
+        public void Problem008_ReturnsCorrectAnswer()
         {
-            Assert.AreEqual(Problems_001_To_025.Problem8(), "23514624000");
+            Assert.AreEqual("23514624000", Problems_001_To_025.Problem008());
         }
 
         [Test]
-        public void Problem9_ReturnsCorrectAnswer()
+        public void Problem009_ReturnsCorrectAnswer()
         {
-            Assert.AreEqual(Problems_001_To_025.Problem9(), "31875000");
+            Assert.AreEqual("31875000", Problems_001_To_025.Problem009());
         }
 
         [Test]
-        public void Problem10_ReturnsCorrectAnswer()
+        public void Problem010_ReturnsCorrectAnswer()
         {
-            Assert.AreEqual(Problems_001_To_025.Problem10(), "142913828922");
+            Assert.AreEqual("142913828922", Problems_001_To_025.Problem010());
         }
 
         [Test]
-        public void Problem11_ReturnsCorrectAnswer()
+        public void Problem011_ReturnsCorrectAnswer()
         {
-            Assert.AreEqual(Problems_001_To_025.Problem11(), "70600674");
+            Assert.AreEqual("70600674", Problems_001_To_025.Problem011());
         }
 
         [Test]
-        public void Problem12_ReturnsCorrectAnswer()
+        public void Problem012_ReturnsCorrectAnswer()
         {
-            Assert.AreEqual(Problems_001_To_025.Problem12(), "76576500");
+            Assert.AreEqual("76576500", Problems_001_To_025.Problem012());
         }
 
         [Test]
-        public void Problem13_ReturnsCorrectAnswer()
+        public void Problem013_ReturnsCorrectAnswer()
         {
-            Assert.AreEqual(Problems_001_To_025.Problem13(), "5537376230");
+            Assert.AreEqual("5537376230", Problems_001_To_025.Problem013());
         }
 
         [Test]
-        public void Problem14_ReturnsCorrectAnswer()
+        public void Problem014_ReturnsCorrectAnswer()
         {
-            Assert.AreEqual(Problems_001_To_025.Problem14(), "837799");
+            Assert.AreEqual("837799", Problems_001_To_025.Problem014());
         }
 
         [Test]
-        public void Problem15_ReturnsCorrectAnswer()
+        public void Problem015_ReturnsCorrectAnswer()
         {
-            Assert.AreEqual(Problems_001_To_025.Problem15(), "137846528820");
+            Assert.AreEqual("137846528820", Problems_001_To_025.Problem015());
         }
 
         [Test]
-        public void Problem16_ReturnsCorrectAnswer()
+        public void Problem016_ReturnsCorrectAnswer()
         {
-            Assert.AreEqual(Problems_001_To_025.Problem16(), "1366");
+            Assert.AreEqual("1366", Problems_001_To_025.Problem016());
         }
 
         [Test]
-        public void Problem17_ReturnsCorrectAnswer()
+        public void Problem017_ReturnsCorrectAnswer()
         {
-            Assert.AreEqual(Problems_001_To_025.Problem17(), "21124");
+            Assert.AreEqual("21124", Problems_001_To_025.Problem017());
         }
 
         [Test]
-        public void Problem18_ReturnsCorrectAnswer()
+        public void Problem018_ReturnsCorrectAnswer()
         {
-            Assert.AreEqual(Problems_001_To_025.Problem18(), "1074");
+            Assert.AreEqual("1074", Problems_001_To_025.Problem018());
         }
 
         [Test]
-        public void Problem19_ReturnsCorrectAnswer()
+        public void Problem019_ReturnsCorrectAnswer()
         {
-            Assert.AreEqual(Problems_001_To_025.Problem19(), "171");
+            Assert.AreEqual("171", Problems_001_To_025.Problem019());
         }
 
         [Test]
-        public void Problem20_ReturnsCorrectAnswer()
+        public void Problem020_ReturnsCorrectAnswer()
         {
-            Assert.AreEqual(Problems_001_To_025.Problem20(), "648");
+            Assert.AreEqual("648", Problems_001_To_025.Problem020());
         }
 
         [Test]
-        public void Problem21_ReturnsCorrectAnswer()
+        public void Problem021_ReturnsCorrectAnswer()
         {
-            Assert.AreEqual(Problems_001_To_025.Problem21(), "31626");
+            Assert.AreEqual("31626", Problems_001_To_025.Problem021());
         }
 
         [Test]
-        public void Problem22_ReturnsCorrectAnswer()
+        public void Problem022_ReturnsCorrectAnswer()
         {
-            Assert.AreEqual(Problems_001_To_025.Problem22(), "871198282");
+            Assert.AreEqual("871198282", Problems_001_To_025.Problem022());
         }
 
         [Test]
-        public void Problem23_ReturnsCorrectAnswer()
+        public void Problem023_ReturnsCorrectAnswer()
         {
-            Assert.AreEqual(Problems_001_To_025.Problem23(), "4179871");
+            Assert.AreEqual("4179871", Problems_001_To_025.Problem023());
         }
 
         [Test]
-        public void Problem24_ReturnsCorrectAnswer()
+        public void Problem024_ReturnsCorrectAnswer()
         {
-            Assert.AreEqual(Problems_001_To_025.Problem24(), "2783915460");
+            Assert.AreEqual("2783915460", Problems_001_To_025.Problem024());
         }
 
         [Test]
-        public void Problem25_ReturnsCorrectAnswer()
+        public void Problem025_ReturnsCorrectAnswer()
         {
-            Assert.AreEqual(Problems_001_To_025.Problem25(), "4782");
+            Assert.AreEqual("4782", Problems_001_To_025.Problem025());
         }
     }
 }

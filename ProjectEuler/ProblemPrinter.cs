@@ -17,7 +17,8 @@ namespace ProjectEuler
 
         public static void PrintProblem(int problemNumber, Type objectType)
         {
-            var method = objectType.GetMethod($"Problem{problemNumber}");
+            string problemNumberWithPadding = problemNumber.ToString().PadLeft(3, '0');
+            var method = objectType.GetMethod($"Problem{problemNumberWithPadding}");
 
             if (method != null)
             {

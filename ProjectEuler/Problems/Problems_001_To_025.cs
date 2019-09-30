@@ -8,7 +8,7 @@ namespace ProjectEuler.Problems
 {
     public class Problems_001_To_025
     {
-        public static string Problem1()
+        public static string Problem001()
         {
             Console.WriteLine("\n\n\n1. Find the sum of all the multiples of 3 or 5 below 1000.");
 
@@ -22,7 +22,7 @@ namespace ProjectEuler.Problems
             return sum.ToString();
         }
 
-        public static string Problem2()
+        public static string Problem002()
         {
             Console.WriteLine("\n\n\n2. By considering the terms in the Fibonacci sequence whose values do not exceed four million,\nfind the sum of the even-valued terms.");
 
@@ -45,7 +45,7 @@ namespace ProjectEuler.Problems
             return sum.ToString();
         }
 
-        public static string Problem3()
+        public static string Problem003()
         {
             Console.WriteLine("\n\n\n3. What is the largest prime factor of the number 600851475143?");
 
@@ -83,7 +83,7 @@ namespace ProjectEuler.Problems
             return true;
         }
 
-        public static string Problem4()
+        public static string Problem004()
         {
             Console.WriteLine("\n\n\n4. Find the largest palindrome made from the product of two 3-digit numbers.");
 
@@ -120,7 +120,7 @@ namespace ProjectEuler.Problems
             return true;
         }
 
-        public static string Problem5()
+        public static string Problem005()
         {
             Console.WriteLine("\n\n\n5. What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?");
 
@@ -146,7 +146,7 @@ namespace ProjectEuler.Problems
             return true;
         }
 
-        public static string Problem6()
+        public static string Problem006()
         {
             Console.WriteLine("\n\n\n6. Find the difference between the sum of the squares of\nthe first one hundred natural numbers and the square of the sum.");
 
@@ -165,7 +165,7 @@ namespace ProjectEuler.Problems
             return difference.ToString();
         }
 
-        public static string Problem7()
+        public static string Problem007()
         {
             Console.WriteLine("\n\n\n7. What is the 10,001st prime number?");
 
@@ -195,7 +195,7 @@ namespace ProjectEuler.Problems
             return primeNumbers[10000].ToString();
         }
 
-        public static string Problem8()
+        public static string Problem008()
         {
             Console.WriteLine("\n\n\n8. Find the thirteen adjacent digits in the 1000-digit number that have the greatest product.\nWhat is the value of this product?\n");
 
@@ -242,18 +242,37 @@ namespace ProjectEuler.Problems
             return maxProduct.ToString();
         }
 
-        public static string Problem9()
+        public static string Problem009()
         {
             Console.WriteLine("\n\n\n9. There exists exactly one Pythagorean triplet (a^2 + b^2 = c^2) for which a + b + c = 1000.\nFind the product abc.");
 
-            return "ToDo...";
+            int a = 0, b = 0;
+            double c = 0;
+
+            for (a = 1; a < 500; a++)
+            {
+                for (b = a + 1; b < 500; b++)
+                {
+                    c = Math.Sqrt(a * a + b * b);
+
+                    if (c > b && a + b + c == 1000)
+                    {
+                        int product = a * b * (int)c;
+
+                        Console.WriteLine("\n\tAnswer: " + product);
+                        return product.ToString();
+                    }
+                }
+            }
+
+            return "Unable to find the answer...";
         }
 
-        public static string Problem10()
+        public static string Problem010()
         {
             Console.WriteLine("\n\n\n10. Find the sum of all the primes below two million (this could take a minute or two).");
 
-            long sum = 0;
+            long sum = 2; // We start with 2 in our listOfPrimes so we also start with 2 as our sum
             List<int> listOfPrimes = new List<int>() { 2 };
 
             for (int number = 3; number < 2000000; number += 2)
@@ -281,7 +300,7 @@ namespace ProjectEuler.Problems
             return sum.ToString();
         }
 
-        public static string Problem11()
+        public static string Problem011()
         {
             Console.WriteLine("\n\n\n11. What is the greatest product of four adjacent numbers in the same direction (up, down, left, right, or diagonally)\nin the 20×20 grid?\n");
 
@@ -355,7 +374,7 @@ namespace ProjectEuler.Problems
             return maxProduct.ToString();
         }
 
-        public static string Problem12()
+        public static string Problem012()
         {
             Console.WriteLine("\n\n\n12. What is the value of the first triangle number to have over five hundred divisors?");
             long triangleNumber = 1;
@@ -397,7 +416,7 @@ namespace ProjectEuler.Problems
             return numberOfFactors;
         }
 
-        public static string Problem13()
+        public static string Problem013()
         {
             Console.WriteLine("\n\n\n13. Work out the first ten digits of the sum of the following one-hundred 50-digit numbers.");
 
@@ -535,7 +554,7 @@ namespace ProjectEuler.Problems
             "53503534226472524250874054075591789781264330331690"};
         }
 
-        public static string Problem14()
+        public static string Problem014()
         {
             Console.WriteLine("\n\n\n14. Which starting number, under one million, produces the longest chain in the Collatz sequence.");
 
@@ -579,7 +598,7 @@ namespace ProjectEuler.Problems
             return sequenceCount;
         }
 
-        public static string Problem15()
+        public static string Problem015()
         {
             Console.WriteLine("\n\n\n15. Starting in the top left corner of a 2×2 grid, and only being able to move to the right and down,\n" +
                 "there are exactly 6 routes to the bottom right corner. How many such routes are there through a 20×20 grid?");
@@ -617,7 +636,7 @@ namespace ProjectEuler.Problems
             return numberOfTotalRoutes / (numberOfRightRoutes * numberOfDownRoutes);
         }
 
-        public static string Problem16()
+        public static string Problem016()
         {
             Console.WriteLine("\n\n\n16. What is the sum of the digits of the number 2^1000?");
 
@@ -634,7 +653,7 @@ namespace ProjectEuler.Problems
             return sumOfDigits.ToString();
         }
 
-        public static string Problem17()
+        public static string Problem017()
         {
             Console.WriteLine("\n\n\n17. If all the numbers from 1 to 1000 (one thousand) inclusive were written out in words, how many letters would be used?");
 
@@ -753,7 +772,7 @@ namespace ProjectEuler.Problems
             return LettersInTheOnesPlace(number) + 8;
         }
 
-        public static string Problem18()
+        public static string Problem018()
         {
             Console.WriteLine("\n\n\n18. Find the maximum total from top to bottom of the triangle below.");
             Console.WriteLine(@"
@@ -817,7 +836,7 @@ namespace ProjectEuler.Problems
             };
         }
 
-        public static string Problem19()
+        public static string Problem019()
         {
             Console.WriteLine("\n\n\n19. How many Sundays fell on the first of the month during the twentieth century (1 Jan 1901 to 31 Dec 2000)?");
 
@@ -834,7 +853,7 @@ namespace ProjectEuler.Problems
             return sundaysOnTheFirst.ToString();
         }
 
-        public static string Problem20()
+        public static string Problem020()
         {
             Console.WriteLine("\n\n\n20. Find the sum of the digits in the number 100!");
 
@@ -857,7 +876,7 @@ namespace ProjectEuler.Problems
             return sumOfDigits.ToString();
         }
 
-        public static string Problem21()
+        public static string Problem021()
         {
             Console.WriteLine("\n\n\n21. Evaluate the sum of all the amicable numbers under 10000.");
 
@@ -896,7 +915,7 @@ namespace ProjectEuler.Problems
             return sumOfDivisors;
         }
 
-        public static string Problem22()
+        public static string Problem022()
         {
             Console.WriteLine("\n\n\n22. Using names.txt, a 46K text file containing over five-thousand first names, begin by sorting it\n\tinto alphabetical order. " +
                               "Then working out the alphabetical value for each name, multiply this\n\tvalue by its alphabetical position in the list to obtain a name score. " +
@@ -962,7 +981,7 @@ namespace ProjectEuler.Problems
             return result;
         }
 
-        public static string Problem23()
+        public static string Problem023()
         {
             Console.WriteLine("\n\n\n23. A number n is called abundant if the sum of its proper divisors is greater than n." +
                               "\n\tFind the sum of all the positive integers which cannot be written as the sum of two abundant numbers.");
@@ -995,7 +1014,7 @@ namespace ProjectEuler.Problems
             return answer.ToString();
         }
 
-        public static string Problem24()
+        public static string Problem024()
         {
             Console.WriteLine("\n\n\n24. What is the millionth lexicographic permutation of the digits 0, 1, 2, 3, 4, 5, 6, 7, 8 and 9?");
 
@@ -1008,10 +1027,10 @@ namespace ProjectEuler.Problems
 
             var result = RecursivePermutations(characters, 0);
 
-            Console.Write("\n\tAnswer: ");
-            result.Value.ForEach(x => Console.Write(x));
-            Console.WriteLine();
-            return "ToDo... Figure out how to sum the letters.";
+            string finalPermutation = string.Empty;
+            result.Value.ForEach(x => finalPermutation += x);
+            Console.WriteLine("\n\tAnswer: " + finalPermutation);
+            return finalPermutation;
         }
 
         private static KeyValuePair<int, List<char>> RecursivePermutations(List<PermutationCharacter> characters, int count)
@@ -1064,7 +1083,7 @@ namespace ProjectEuler.Problems
             public char Character;
         }
 
-        public static string Problem25()
+        public static string Problem025()
         {
             Console.WriteLine("\n\n\n25. What is the index of the first term in the Fibonacci sequence to contain 1000 digits?");
 
