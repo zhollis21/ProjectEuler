@@ -24,7 +24,16 @@ namespace ProjectEuler
             {
                 DateTime start = DateTime.Now;
 
-                method.Invoke(null, null);
+                object obj = method.Invoke(null, null);
+
+                if (obj != null && obj is string answer)
+                {
+                    Console.WriteLine("\n\tAnswer: " + answer);
+                }
+                else
+                {
+                    Console.WriteLine("\n\tAn error occurred: The problem didn't return a valid answer.");
+                }
 
                 Console.WriteLine($"\nThe problem took {DateTime.Now - start}, press <Enter> to continue...");
                 Console.ReadLine();

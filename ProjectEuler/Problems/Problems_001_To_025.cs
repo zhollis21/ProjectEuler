@@ -18,7 +18,6 @@ namespace ProjectEuler.Problems
                 if (i % 3 == 0 || i % 5 == 0)
                     sum += i;
 
-            Console.WriteLine("\n\tAnswer: " + sum);
             return sum.ToString();
         }
 
@@ -41,7 +40,6 @@ namespace ProjectEuler.Problems
                 result = num1 + num2;
             }
 
-            Console.WriteLine("\n\tAnswer: " + sum);
             return sum.ToString();
         }
 
@@ -63,7 +61,6 @@ namespace ProjectEuler.Problems
                     long diviser = number / i;
                     if (IsPrime(diviser))
                     {
-                        Console.WriteLine("\nAnswer: " + diviser);
                         return diviser.ToString();
                     }
                 }
@@ -76,7 +73,10 @@ namespace ProjectEuler.Problems
         {
             long squareRoot = (long)Math.Sqrt(number);
 
-            for (long i = 2; i <= squareRoot; i++)
+            if (number != 2 && number % 2 == 0)
+                return false;
+
+            for (long i = 3; i <= squareRoot; i += 2)
                 if (number % i == 0)
                     return false;
 
@@ -100,7 +100,6 @@ namespace ProjectEuler.Problems
                 }
             }
 
-            Console.WriteLine("\nAnswer: " + maxProduct);
             return maxProduct.ToString();
         }
 
@@ -129,7 +128,6 @@ namespace ProjectEuler.Problems
             {
                 if (IsDivisibleBy1Through20(number))
                 {
-                    Console.WriteLine("\nAnswer: " + number);
                     return number.ToString();
                 }
             }
@@ -161,7 +159,6 @@ namespace ProjectEuler.Problems
 
             long difference = sumOfFirstHundredNums * sumOfFirstHundredNums - sumOfSquares;
 
-            Console.WriteLine("\n\tAnswer: " + difference);
             return difference.ToString();
         }
 
@@ -169,30 +166,20 @@ namespace ProjectEuler.Problems
         {
             Console.WriteLine("\n\n\n7. What is the 10,001st prime number?");
 
-            List<int> primeNumbers = new List<int>() { 2 };
+            int counter = 1; // We start off knowing 2 is prime
             int number = 3;
 
-            while (primeNumbers.Count < 10001)
+           while (counter < 10001)
             {
-                bool isPrime = true;
-
-                for (int primeIndex = 0; primeIndex < primeNumbers.Count; primeIndex++)
+                if (IsPrime(number))
                 {
-                    if (number % primeNumbers[primeIndex] == 0)
-                    {
-                        isPrime = false;
-                        break;
-                    }
+                    counter++;
                 }
-
-                if (isPrime)
-                    primeNumbers.Add(number);
 
                 number += 2;
             }
 
-            Console.WriteLine("\n\tAnswer: " + primeNumbers[10000]);
-            return primeNumbers[10000].ToString();
+            return (number - 2).ToString();
         }
 
         public static string Problem008()
@@ -238,7 +225,6 @@ namespace ProjectEuler.Problems
                     maxProduct = product;
             }
 
-            Console.WriteLine("\n\tAnswer: " + maxProduct);
             return maxProduct.ToString();
         }
 
@@ -259,7 +245,6 @@ namespace ProjectEuler.Problems
                     {
                         int product = a * b * (int)c;
 
-                        Console.WriteLine("\n\tAnswer: " + product);
                         return product.ToString();
                     }
                 }
@@ -296,7 +281,6 @@ namespace ProjectEuler.Problems
                 }
             }
 
-            Console.WriteLine("\n\tAnswer: " + sum);
             return sum.ToString();
         }
 
@@ -370,7 +354,6 @@ namespace ProjectEuler.Problems
                 }
             }
 
-            Console.WriteLine("\n\tAnswer: " + maxProduct);
             return maxProduct.ToString();
         }
 
@@ -386,7 +369,6 @@ namespace ProjectEuler.Problems
                     break;
             }
 
-            Console.WriteLine("\n\tAnswer: " + triangleNumber);
             return triangleNumber.ToString();
         }
 
@@ -445,7 +427,6 @@ namespace ProjectEuler.Problems
             // If we have added all the numbers and there is carry over, we place it in front
             sumOfNumbers = additionCarryOver + sumOfNumbers;
 
-            Console.WriteLine("\n\tAnswer: " + sumOfNumbers.Substring(0, 10));
             return sumOfNumbers.Substring(0, 10);
         }
 
@@ -572,7 +553,6 @@ namespace ProjectEuler.Problems
                 }
             }
 
-            Console.WriteLine($"\n\tAnswer: {numberWithMaxSequence} had the longest chain ({maxSequenceCount}).");
             return numberWithMaxSequence.ToString();
         }
 
@@ -604,7 +584,6 @@ namespace ProjectEuler.Problems
                 "there are exactly 6 routes to the bottom right corner. How many such routes are there through a 20×20 grid?");
 
             BigInteger answer = CalculateNumberOfRoutes(20, 20);
-            Console.WriteLine($"\n\tAnswer: " + answer);
             return answer.ToString();
         }
 
@@ -649,7 +628,6 @@ namespace ProjectEuler.Problems
             // pull the character value when converting to an integer
             int sumOfDigits = product.ToString().Sum(x => Convert.ToInt32(x.ToString()));
 
-            Console.WriteLine("\n\tAnswer: " + sumOfDigits);
             return sumOfDigits.ToString();
         }
 
@@ -665,10 +643,9 @@ namespace ProjectEuler.Problems
 
             for (int i = 1; i <= 1000; i++)
             {
-                Console.WriteLine($"{i} has {sumOfLetters += LettersInANumber(i)} letters.");
+                sumOfLetters += LettersInANumber(i);
             }
 
-            Console.WriteLine("\n\tAnswer: " + sumOfLetters);
             return sumOfLetters.ToString();
         }
 
@@ -793,7 +770,6 @@ namespace ProjectEuler.Problems
 04 62 98 27 23 09 70 98 73 93 38 53 60 04 23");
 
             var answer = FindGreatestSumInTriangle(0, 0, GetTriangleOfNumbers());
-            Console.WriteLine("\n\n\tAnswer: " + answer);
             return answer.ToString();
         }
 
@@ -849,7 +825,6 @@ namespace ProjectEuler.Problems
                     sundaysOnTheFirst++;
             }
 
-            Console.WriteLine("\n\tAnswer: " + sundaysOnTheFirst);
             return sundaysOnTheFirst.ToString();
         }
 
@@ -872,7 +847,6 @@ namespace ProjectEuler.Problems
                 sumOfDigits += Convert.ToInt32(digits[i].ToString());
             }
 
-            Console.WriteLine("\n\tAnswer: " + sumOfDigits);
             return sumOfDigits.ToString();
         }
 
@@ -897,7 +871,6 @@ namespace ProjectEuler.Problems
                 // more performant than searching to see if something is in a list or not
             }
 
-            Console.WriteLine("\n\tAnswer: " + sumOfAmicableNumbers);
             return sumOfAmicableNumbers.ToString();
         }
 
@@ -925,6 +898,9 @@ namespace ProjectEuler.Problems
 
             var sortedNames = GetNamesInAlphaOrder();
 
+            if (sortedNames == null || sortedNames.Count < 1)
+                return "An error occurred: Unable to get names.";
+
             BigInteger sumOfNameScores = 0;
 
             for (int i = 0; i < sortedNames.Count; i++)
@@ -934,7 +910,6 @@ namespace ProjectEuler.Problems
                 sumOfNameScores += (i + 1) * SumOfCharacterPositions(sortedNames[i]);
             }
 
-            Console.WriteLine("\n\tAnswer: " + sumOfNameScores);
             return sumOfNameScores.ToString();
         }
 
@@ -955,7 +930,7 @@ namespace ProjectEuler.Problems
 
         private static List<string> GetNamesInAlphaOrder()
         {
-            string path = @"Helpers/p022_names.txt";
+            string path = @"Files/p022_names.txt";
 
             if (!File.Exists(path))
             {
@@ -1010,7 +985,6 @@ namespace ProjectEuler.Problems
             }
 
             var answer = nonAbundantSumNumbers.Sum();
-            Console.WriteLine("\n\tAnswer: " + answer);
             return answer.ToString();
         }
 
@@ -1029,7 +1003,6 @@ namespace ProjectEuler.Problems
 
             string finalPermutation = string.Empty;
             result.Value.ForEach(x => finalPermutation += x);
-            Console.WriteLine("\n\tAnswer: " + finalPermutation);
             return finalPermutation;
         }
 
@@ -1100,7 +1073,6 @@ namespace ProjectEuler.Problems
             }
             while (currentNumber.ToString().Length < 1000);
 
-            Console.WriteLine("\n\tAnswer: " + index);
             return index.ToString();
         }
     }
