@@ -23,9 +23,26 @@ namespace ProjectEuler.Problems
 
         public static string Problem028()
         {
-            Console.WriteLine("\n\n\n28. ");
+            Console.WriteLine("\n\n\n28. What is the sum of the numbers on the diagonals in a 1001 by 1001 spiral formed in the same way?");
 
-            return null;
+            int maxDiagonal = 1001 * 1001;
+
+            int distanceBetweenDiagonals = 2;
+            long sum = 1; // 1 starts of in the center
+            int number = 1;
+
+            while (number < maxDiagonal)
+            {
+                for (int i = 0; i < 4; i ++)
+                {
+                    number += distanceBetweenDiagonals;
+                    sum += number;
+                }
+
+                distanceBetweenDiagonals += 2;
+            }
+
+            return sum.ToString();
         }
 
         public static string Problem029()
