@@ -9,119 +9,119 @@ namespace ProjectEuler.Problems
 {
     public class Problems_051_To_075
     {
-        //public static string Problem51()
+        //public static string Problem051()
         //{
         //    Console.WriteLine("\n\n\n51. ");
 
         //    return null;
         //}
 
-        //public static string Problem52()
+        //public static string Problem052()
         //{
         //    Console.WriteLine("\n\n\n52. ");
 
         //    return null;
         //}
 
-        //public static string Problem53()
+        //public static string Problem053()
         //{
         //    Console.WriteLine("\n\n\n53. ");
 
         //    return null;
         //}
 
-        //public static string Problem54()
+        //public static string Problem054()
         //{
         //    Console.WriteLine("\n\n\n54. ");
 
         //    return null;
         //}
 
-        //public static string Problem55()
+        //public static string Problem055()
         //{
         //    Console.WriteLine("\n\n\n55. ");
 
         //    return null;
         //}
 
-        //public static string Problem56()
+        //public static string Problem056()
         //{
         //    Console.WriteLine("\n\n\n56. ");
 
         //    return null;
         //}
 
-        //public static string Problem57()
+        //public static string Problem057()
         //{
         //    Console.WriteLine("\n\n\n57. ");
 
         //    return null;
         //}
 
-        //public static string Problem58()
+        //public static string Problem058()
         //{
         //    Console.WriteLine("\n\n\n58. ");
 
         //    return null;
         //}
 
-        //public static string Problem59()
+        //public static string Problem059()
         //{
         //    Console.WriteLine("\n\n\n59. ");
 
         //    return null;
         //}
 
-        //public static string Problem60()
+        //public static string Problem060()
         //{
         //    Console.WriteLine("\n\n\n60. ");
 
         //    return null;
         //}
 
-        //public static string Problem61()
+        //public static string Problem061()
         //{
         //    Console.WriteLine("\n\n\n61. ");
 
         //    return null;
         //}
 
-        //public static string Problem62()
+        //public static string Problem062()
         //{
         //    Console.WriteLine("\n\n\n62. ");
 
         //    return null;
         //}
 
-        //public static string Problem63()
+        //public static string Problem063()
         //{
         //    Console.WriteLine("\n\n\n63. ");
 
         //    return null;
         //}
 
-        //public static string Problem64()
+        //public static string Problem064()
         //{
         //    Console.WriteLine("\n\n\n64. ");
 
         //    return null;
         //}
 
-        //public static string Problem65()
+        //public static string Problem065()
         //{
         //    Console.WriteLine("\n\n\n65. ");
 
         //    return null;
         //}
 
-        //public static string Problem66()
+        //public static string Problem066()
         //{
         //    Console.WriteLine("\n\n\n66. ");
 
         //    return null;
         //}
 
-        public static string Problem67()
+        public static string Problem067()
         {
             Console.WriteLine("\n\n\n67. Find the maximum total from top to bottom in triangle.txt,\n\ta 15K text file containing a triangle with one-hundred rows.");
 
@@ -150,7 +150,7 @@ namespace ProjectEuler.Problems
 
         private static List<List<ulong>> GetTriangle()
         {
-            string path = @"Helpers/p067_triangle.txt";
+            string path = @"Files/p067_triangle.txt";
 
             if (!File.Exists(path))
             {
@@ -178,56 +178,56 @@ namespace ProjectEuler.Problems
             return result;
         }
                 
-        //public static string Problem68()
+        //public static string Problem068()
         //{
         //    Console.WriteLine("\n\n\n68. ");
 
         //    return null;
         //}
 
-        //public static string Problem69()
+        //public static string Problem069()
         //{
         //    Console.WriteLine("\n\n\n69. ");
 
         //    return null;
         //}
 
-        //public static string Problem70()
+        //public static string Problem070()
         //{
         //    Console.WriteLine("\n\n\n70. ");
 
         //    return null;
         //}
 
-        //public static string Problem71()
+        //public static string Problem071()
         //{
         //    Console.WriteLine("\n\n\n71. ");
 
         //    return null;
         //}
 
-        //public static string Problem72()
+        //public static string Problem072()
         //{
         //    Console.WriteLine("\n\n\n72. ");
 
         //    return null;
         //}
 
-        //public static string Problem73()
+        //public static string Problem073()
         //{
         //    Console.WriteLine("\n\n\n73. ");
 
         //    return null;
         //}
 
-        //public static string Problem74()
+        //public static string Problem074()
         //{
         //    Console.WriteLine("\n\n\n74. ");
 
         //    return null;
         //}
 
-        //public static string Problem75()
+        //public static string Problem075()
         //{
         //    Console.WriteLine("\n\n\n75. ");
 
