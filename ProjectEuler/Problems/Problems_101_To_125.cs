@@ -7,179 +7,179 @@ namespace ProjectEuler.Problems
 {
     public class Problems_101_To_125
     {
-        //public static void Problem101()
+        //public static string Problem101()
         //{
         //    Console.WriteLine("\n\n\n101. ");
 
-        //    Console.WriteLine("\n\tAnswer: ");
+        //    return null;
         //}
 
-        //public static void Problem102()
+        //public static string Problem102()
         //{
         //    Console.WriteLine("\n\n\n102. ");
 
-        //    Console.WriteLine("\n\tAnswer: ");
+        //    return null;
         //}
 
-        //public static void Problem103()
+        //public static string Problem103()
         //{
         //    Console.WriteLine("\n\n\n103. ");
 
-        //    Console.WriteLine("\n\tAnswer: ");
+        //    return null;
         //}
 
-        //public static void Problem104()
+        //public static string Problem104()
         //{
         //    Console.WriteLine("\n\n\n104. ");
 
-        //    Console.WriteLine("\n\tAnswer: ");
+        //    return null;
         //}
 
-        //public static void Problem105()
+        //public static string Problem105()
         //{
         //    Console.WriteLine("\n\n\n105. ");
 
-        //    Console.WriteLine("\n\tAnswer: ");
+        //    return null;
         //}
 
-        //public static void Problem106()
+        //public static string Problem106()
         //{
         //    Console.WriteLine("\n\n\n106. ");
 
-        //    Console.WriteLine("\n\tAnswer: ");
+        //    return null;
         //}
 
-        //public static void Problem107()
+        //public static string Problem107()
         //{
         //    Console.WriteLine("\n\n\n107. ");
 
-        //    Console.WriteLine("\n\tAnswer: ");
+        //    return null;
         //}
 
-        //public static void Problem108()
+        //public static string Problem108()
         //{
         //    Console.WriteLine("\n\n\n108. ");
 
-        //    Console.WriteLine("\n\tAnswer: ");
+        //    return null;
         //}
 
-        //public static void Problem109()
+        //public static string Problem109()
         //{
         //    Console.WriteLine("\n\n\n109. ");
 
-        //    Console.WriteLine("\n\tAnswer: ");
+        //    return null;
         //}
 
-        //public static void Problem110()
+        //public static string Problem110()
         //{
         //    Console.WriteLine("\n\n\n110. ");
 
-        //    Console.WriteLine("\n\tAnswer: ");
+        //    return null;
         //}
 
-        //public static void Problem111()
+        //public static string Problem111()
         //{
         //    Console.WriteLine("\n\n\n111. ");
 
-        //    Console.WriteLine("\n\tAnswer: ");
+        //    return null;
         //}
 
-        //public static void Problem112()
+        //public static string Problem112()
         //{
         //    Console.WriteLine("\n\n\n112. ");
 
-        //    Console.WriteLine("\n\tAnswer: ");
+        //    return null;
         //}
 
-        //public static void Problem113()
+        //public static string Problem113()
         //{
         //    Console.WriteLine("\n\n\n113. ");
 
-        //    Console.WriteLine("\n\tAnswer: ");
+        //    return null;
         //}
 
-        //public static void Problem114()
+        //public static string Problem114()
         //{
         //    Console.WriteLine("\n\n\n114. ");
 
-        //    Console.WriteLine("\n\tAnswer: ");
+        //    return null;
         //}
 
-        //public static void Problem115()
+        //public static string Problem115()
         //{
         //    Console.WriteLine("\n\n\n115. ");
 
-        //    Console.WriteLine("\n\tAnswer: ");
+        //    return null;
         //}
 
-        //public static void Problem116()
+        //public static string Problem116()
         //{
         //    Console.WriteLine("\n\n\n116. ");
 
-        //    Console.WriteLine("\n\tAnswer: ");
+        //    return null;
         //}
 
-        //public static void Problem117()
+        //public static string Problem117()
         //{
         //    Console.WriteLine("\n\n\n117. ");
 
-        //    Console.WriteLine("\n\tAnswer: ");
+        //    return null;
         //}
 
-        //public static void Problem118()
+        //public static string Problem118()
         //{
         //    Console.WriteLine("\n\n\n118. ");
 
-        //    Console.WriteLine("\n\tAnswer: ");
+        //    return null;
         //}
 
-        //public static void Problem119()
+        //public static string Problem119()
         //{
         //    Console.WriteLine("\n\n\n119. ");
 
-        //    Console.WriteLine("\n\tAnswer: ");
+        //    return null;
         //}
 
-        //public static void Problem120()
+        //public static string Problem120()
         //{
         //    Console.WriteLine("\n\n\n120. ");
 
-        //    Console.WriteLine("\n\tAnswer: ");
+        //    return null;
         //}
 
-        //public static void Problem121()
+        //public static string Problem121()
         //{
         //    Console.WriteLine("\n\n\n121. ");
 
-        //    Console.WriteLine("\n\tAnswer: ");
+        //    return null;
         //}
 
-        //public static void Problem122()
+        //public static string Problem122()
         //{
         //    Console.WriteLine("\n\n\n122. ");
 
-        //    Console.WriteLine("\n\tAnswer: ");
+        //    return null;
         //}
 
-        //public static void Problem123()
+        //public static string Problem123()
         //{
         //    Console.WriteLine("\n\n\n123. ");
 
-        //    Console.WriteLine("\n\tAnswer: ");
+        //    return null;
         //}
 
-        //public static void Problem124()
+        //public static string Problem124()
         //{
         //    Console.WriteLine("\n\n\n124. ");
 
-        //    Console.WriteLine("\n\tAnswer: ");
+        //    return null;
         //}
 
-        //public static void Problem125()
+        //public static string Problem125()
         //{
         //    Console.WriteLine("\n\n\n125. ");
 
-        //    Console.WriteLine("\n\tAnswer: ");
+        //    return null;
         //}
     }
 }

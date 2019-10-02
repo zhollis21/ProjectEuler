@@ -9,119 +9,119 @@ namespace ProjectEuler.Problems
 {
     public class Problems_051_To_075
     {
-        //public static void Problem51()
+        //public static string Problem51()
         //{
         //    Console.WriteLine("\n\n\n51. ");
 
-        //    Console.WriteLine("\n\tAnswer: ");
+        //    return null;
         //}
 
-        //public static void Problem52()
+        //public static string Problem52()
         //{
         //    Console.WriteLine("\n\n\n52. ");
 
-        //    Console.WriteLine("\n\tAnswer: ");
+        //    return null;
         //}
 
-        //public static void Problem53()
+        //public static string Problem53()
         //{
         //    Console.WriteLine("\n\n\n53. ");
 
-        //    Console.WriteLine("\n\tAnswer: ");
+        //    return null;
         //}
 
-        //public static void Problem54()
+        //public static string Problem54()
         //{
         //    Console.WriteLine("\n\n\n54. ");
 
-        //    Console.WriteLine("\n\tAnswer: ");
+        //    return null;
         //}
 
-        //public static void Problem55()
+        //public static string Problem55()
         //{
         //    Console.WriteLine("\n\n\n55. ");
 
-        //    Console.WriteLine("\n\tAnswer: ");
+        //    return null;
         //}
 
-        //public static void Problem56()
+        //public static string Problem56()
         //{
         //    Console.WriteLine("\n\n\n56. ");
 
-        //    Console.WriteLine("\n\tAnswer: ");
+        //    return null;
         //}
 
-        //public static void Problem57()
+        //public static string Problem57()
         //{
         //    Console.WriteLine("\n\n\n57. ");
 
-        //    Console.WriteLine("\n\tAnswer: ");
+        //    return null;
         //}
 
-        //public static void Problem58()
+        //public static string Problem58()
         //{
         //    Console.WriteLine("\n\n\n58. ");
 
-        //    Console.WriteLine("\n\tAnswer: ");
+        //    return null;
         //}
 
-        //public static void Problem59()
+        //public static string Problem59()
         //{
         //    Console.WriteLine("\n\n\n59. ");
 
-        //    Console.WriteLine("\n\tAnswer: ");
+        //    return null;
         //}
 
-        //public static void Problem60()
+        //public static string Problem60()
         //{
         //    Console.WriteLine("\n\n\n60. ");
 
-        //    Console.WriteLine("\n\tAnswer: ");
+        //    return null;
         //}
 
-        //public static void Problem61()
+        //public static string Problem61()
         //{
         //    Console.WriteLine("\n\n\n61. ");
 
-        //    Console.WriteLine("\n\tAnswer: ");
+        //    return null;
         //}
 
-        //public static void Problem62()
+        //public static string Problem62()
         //{
         //    Console.WriteLine("\n\n\n62. ");
 
-        //    Console.WriteLine("\n\tAnswer: ");
+        //    return null;
         //}
 
-        //public static void Problem63()
+        //public static string Problem63()
         //{
         //    Console.WriteLine("\n\n\n63. ");
 
-        //    Console.WriteLine("\n\tAnswer: ");
+        //    return null;
         //}
 
-        //public static void Problem64()
+        //public static string Problem64()
         //{
         //    Console.WriteLine("\n\n\n64. ");
 
-        //    Console.WriteLine("\n\tAnswer: ");
+        //    return null;
         //}
 
-        //public static void Problem65()
+        //public static string Problem65()
         //{
         //    Console.WriteLine("\n\n\n65. ");
 
-        //    Console.WriteLine("\n\tAnswer: ");
+        //    return null;
         //}
 
-        //public static void Problem66()
+        //public static string Problem66()
         //{
         //    Console.WriteLine("\n\n\n66. ");
 
-        //    Console.WriteLine("\n\tAnswer: ");
+        //    return null;
         //}
 
-        public static void Problem67()
+        public static string Problem67()
         {
             Console.WriteLine("\n\n\n67. Find the maximum total from top to bottom in triangle.txt,\n\ta 15K text file containing a triangle with one-hundred rows.");
 
@@ -129,7 +129,7 @@ namespace ProjectEuler.Problems
 
             ulong greatestSum = FindGreatestSumInTriangle(triangle);
 
-            Console.WriteLine("\n\tAnswer: " + greatestSum);
+            return greatestSum.ToString();
         }
 
         private static ulong FindGreatestSumInTriangle(List<List<ulong>> triangle)
@@ -178,60 +178,60 @@ namespace ProjectEuler.Problems
             return result;
         }
                 
-        //public static void Problem68()
+        //public static string Problem68()
         //{
         //    Console.WriteLine("\n\n\n68. ");
 
-        //    Console.WriteLine("\n\tAnswer: ");
+        //    return null;
         //}
 
-        //public static void Problem69()
+        //public static string Problem69()
         //{
         //    Console.WriteLine("\n\n\n69. ");
 
-        //    Console.WriteLine("\n\tAnswer: ");
+        //    return null;
         //}
 
-        //public static void Problem70()
+        //public static string Problem70()
         //{
         //    Console.WriteLine("\n\n\n70. ");
 
-        //    Console.WriteLine("\n\tAnswer: ");
+        //    return null;
         //}
 
-        //public static void Problem71()
+        //public static string Problem71()
         //{
         //    Console.WriteLine("\n\n\n71. ");
 
-        //    Console.WriteLine("\n\tAnswer: ");
+        //    return null;
         //}
 
-        //public static void Problem72()
+        //public static string Problem72()
         //{
         //    Console.WriteLine("\n\n\n72. ");
 
-        //    Console.WriteLine("\n\tAnswer: ");
+        //    return null;
         //}
 
-        //public static void Problem73()
+        //public static string Problem73()
         //{
         //    Console.WriteLine("\n\n\n73. ");
 
-        //    Console.WriteLine("\n\tAnswer: ");
+        //    return null;
         //}
 
-        //public static void Problem74()
+        //public static string Problem74()
         //{
         //    Console.WriteLine("\n\n\n74. ");
 
-        //    Console.WriteLine("\n\tAnswer: ");
+        //    return null;
         //}
 
-        //public static void Problem75()
+        //public static string Problem75()
         //{
         //    Console.WriteLine("\n\n\n75. ");
 
-        //    Console.WriteLine("\n\tAnswer: ");
+        //    return null;
         //}
     }
 }
