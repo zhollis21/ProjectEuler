@@ -1,7 +1,7 @@
 ﻿namespace ProjectEuler.Models
 {
     /// <summary>
-    /// Simple class to hold a character and a bool to let us know if we can pick it
+    /// Simple class that holds a character and with a bool to let us know if it is available
     /// </summary>
     public class PermutationCharacter
     {

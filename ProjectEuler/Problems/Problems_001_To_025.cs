@@ -609,7 +609,7 @@ namespace ProjectEuler.Problems
                 characters.Add(new PermutationCharacter(char.Parse(i.ToString())));
             }
 
-            var result = Helpers.FindNthRecursivePermutation(characters, 1000000);
+            var result = Helpers.FindNthPermutationRecursive(characters, 1000000);
 
             if (result.Value == null)
                 return "Unable to find the answer...";

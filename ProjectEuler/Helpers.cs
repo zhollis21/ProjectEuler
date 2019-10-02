@@ -399,16 +399,16 @@ namespace ProjectEuler
             return result;
         }
 
-        public static KeyValuePair<int, List<char>> FindNthRecursivePermutation(List<PermutationCharacter> characters, int nthCount)
+        public static KeyValuePair<int, List<char>> FindNthPermutationRecursive(List<PermutationCharacter> characters, int nthPermutation)
         {
             // If there is only one available letter we know we are at the last layer of the recursion
             if (characters.Where(x => x.IsAvailable).Count() == 1)
             {
                 // We subract for every combination until nthCount is 0, at which point we have found the one they wanted.
-                if (--nthCount == 0)
-                    return new KeyValuePair<int, List<char>>(nthCount, new List<char> { characters.Where(x => x.IsAvailable).First().Character });
+                if (--nthPermutation == 0)
+                    return new KeyValuePair<int, List<char>>(nthPermutation, new List<char> { characters.Where(x => x.IsAvailable).First().Character });
                 else
-                    return new KeyValuePair<int, List<char>>(nthCount, null);
+                    return new KeyValuePair<int, List<char>>(nthPermutation, null);
             }
 
             foreach (PermutationCharacter pc in characters)
@@ -418,8 +418,8 @@ namespace ProjectEuler
                 {
                     pc.IsAvailable = false;
 
-                    var result = FindNthRecursivePermutation(characters, nthCount);
-                    nthCount = result.Key;
+                    var result = FindNthPermutationRecursive(characters, nthPermutation);
+                    nthPermutation = result.Key;
 
                     // We only return a non null value when we reached 1 million
                     if (result.Value != null)
@@ -434,7 +434,7 @@ namespace ProjectEuler
             }
 
             // We didn't find the nth one yet, so we go back a level
-            return new KeyValuePair<int, List<char>>(nthCount, null);
+            return new KeyValuePair<int, List<char>>(nthPermutation, null);
         }
     }
 }

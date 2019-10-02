@@ -1,5 +1,7 @@
 ﻿using NUnit.Framework;
 using ProjectEuler;
+using ProjectEuler.Models;
+using System.Collections.Generic;
 
 namespace ProblemUnitTests
 {
@@ -49,6 +51,28 @@ namespace ProblemUnitTests
         {
             bool actualResult = Helpers.IsPalendome(word);
             Assert.AreEqual(expectedResult, actualResult);
+        }
+
+        [Test]
+        [TestCase("abc", 3, "bac")]
+        [TestCase("1589", 6, "1985")]
+        public void FindNthPermutationRecursive_ReturnsCorrectPermutation(string characters, int nthPermutation, string expectedPermutation)
+        {
+            List<PermutationCharacter> permutationCharacters = new List<PermutationCharacter>();
+
+            for (int i = 0; i < characters.Length; i++)
+            {
+                permutationCharacters.Add(new PermutationCharacter(characters[i]));
+            }
+
+            var result = Helpers.FindNthPermutationRecursive(permutationCharacters, nthPermutation);
+
+            string actualPermutation = string.Empty;
+
+            foreach (char c in result.Value)
+                actualPermutation += c;
+
+            Assert.AreEqual(expectedPermutation, actualPermutation);
         }
     }
 }
