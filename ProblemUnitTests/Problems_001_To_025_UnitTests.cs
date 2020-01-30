@@ -10,7 +10,7 @@ namespace ProblemUnitTests
         [Test]
         public void Problem001_ReturnsCorrectAnswer()
         {
-            Assert.AreEqual("233168", Problems_001_To_025.Problem001());
+            Assert.AreEqual("233167", Problems_001_To_025.Problem001());
         }
 
         [Test]
