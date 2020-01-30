@@ -17,7 +17,7 @@ jobs:
       with:
         dotnet-version: 2.2.108
     - name: Build with dotnet
-      run: dotnet build ./src/Solution.sln --configuration Release
+      run: dotnet build ./Solution.sln --configuration Release
     - name: Test with dotnet
-      run: dotnet test ./src/Solution.sln --configuration Release
+      run: dotnet test ./Solution.sln --configuration Release
       
